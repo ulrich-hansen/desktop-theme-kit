@@ -49,6 +49,7 @@ install-backgrounds: mkdirs
 	$(INSTALL) backgrounds/$(THEME)-gnome-backgrounds.xml $(DESTDIR)/usr/share/gnome-background-properties/$(THEME).xml
 	$(INSTALL) backgrounds/$(THEME)-gnome-lockscreen.xml $(DESTDIR)/usr/share/desktop-theme-$(THEME)/backgrounds/
 
+
 install-plymouth: mkdirs
 	$(INSTALL) $(wildcard plymouth/*) $(DESTDIR)/usr/share/plymouth/themes/$(THEME)/
 	$(INSTALL) backgrounds/$(THEME)-login.png $(DESTDIR)/usr/share/plymouth/themes/$(THEME)/background.png
@@ -63,14 +64,17 @@ install-grub: mkdirs
 install-gdm3: mkdirs
 	$(INSTALL) gdm3/$(THEME)-gdm3-background.conf $(DESTDIR)/usr/share/desktop-theme-$(THEME)/gdm3/
 
+
 install-ksplash: mkdirs
 	$(INSTALL) $(wildcard ksplash/theme/*.*) $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/
 	$(INSTALL) $(wildcard ksplash/theme/1920x1080/*) $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/1920x1080/
 	$(INSTALL) ksplash/$(THEME)-ksplash.conf $(DESTDIR)/usr/share/desktop-theme-$(THEME)/ksplash/
 
+
 install-kdm: mkdirs
 	$(INSTALL) kdm-theme/$(THEME)-kdm.conf $(DESTDIR)/usr/share/desktop-theme-$(THEME)/kdm-theme/
 	$(INSTALL) $(wildcard kdm-theme/theme/*.*) $(DESTDIR)/usr/share/kde4/apps/kdm/themes/$(THEME)/
+
 
 install-kde: mkdirs
 	$(INSTALL) kde-wallpaper/theme/metadata.desktop $(DESTDIR)/usr/share/wallpapers/$(THEME)/
@@ -78,11 +82,14 @@ install-kde: mkdirs
 #	$(INSTALL) $(wildcard kde-wallpaper/theme/contents/images/*) $(DESTDIR)/usr/share/wallpapers/$(THEME)/contents/images/
 	$(INSTALL) kde-wallpaper/$(THEME)-kde-wallpaper.conf $(DESTDIR)/usr/share/desktop-theme-$(THEME)/kde-wallpaper/
 
+
 install-readme: mkdirs
 	$(INSTALL) $(wildcard readme/*) $(DESTDIR)/usr/share/desktop-theme-$(THEME)/readme/
 
+
 install-script: mkdirs
 	$(INSTALL) script/update-desktop-theme $(DESTDIR)/usr/bin/update-desktop-theme
+
 
 install-themes: mkdirs
 	$(INSTALL) $(wildcard themes/growing/*.* ) $(DESTDIR)/usr/share/images/desktop-theme-package/growing/
