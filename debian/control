@@ -1,0 +1,17 @@
+Source: desktop-theme-custom
+Section: x11
+Priority: optional
+Maintainer: Ronoaldo JLP <ronoaldo@gmail.com>
+Uploaders: Ulrich Hansen <uhansen@debianart.org>
+Build-Depends: debhelper (>= 9), cdbs
+Standards-Version: 3.9.3
+Homepage: http://wiki.debian.org/DebianArt/Themes/custom
+Vcs-Hg: https://bitbucket.org/ronoaldo/desktop-theme-custom
+
+Package: desktop-theme-custom
+Pre-Depends: dpkg (>= 1.15.7.2~), desktop-base
+Architecture: all
+Suggests: gnome | kde-standard | xfce4 | wmaker, plymouth-themes-script
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: custom desktop theme
+ This package allows root to switch to a custom theme for Debian.

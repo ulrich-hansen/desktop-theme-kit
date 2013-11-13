@@ -1,0 +1,324 @@
+#!/bin/bash
+
+# Name and location of this script:
+# /usr/bin
+
+# The script finishes the installation of a desktop-theme-package.
+#
+# It is supposed to be run as root and will install the theme 
+# system wide for all users.
+#
+# Desktop-theme-packages are available at 
+# http://wiki.debian.org/DebianArt/Themes/Packages.
+#
+# Copyright (C) 2012 Ulrich Hansen <uhansen@debianart.org>
+#               2012 Ronoaldo JLP <ronoaldo@gmail.com>
+
+
+# Stop on failures
+set -e
+
+
+THEME=desktop-theme-package
+DEBIAN_DEFAULT=joy
+# The name of the theme included in desktop-theme-package:
+NAME=custom
+
+
+# ------------
+# Choose theme
+#-------------
+
+
+
+choose_theme() {
+echo "Please type the name of the new theme you wish to install. Or type 'a' for abort."
+cd /usr/share/images/$THEME/
+for i in $(ls -d */); do echo ${i%%/}; done
+read ANSWER
+    
+    if [ "$ANSWER" == "a" ]; then
+    echo "No new theme chosen. Activating the existing theme."
+    else
+
+    if [ -f /usr/share/images/$THEME/$ANSWER/wallpaper.png ]; then
+        cp /usr/share/images/$THEME/$ANSWER/wallpaper.png  /usr/share/desktop-theme-$NAME/backgrounds/$NAME-wallpaper.png;
+    echo "The wallpaper for the theme $ANSWER has been installed."
+
+    else
+    echo "No wallpaper found. Please make sure there is a file /usr/share/images/$THEME/$ANSWER/wallpaper.png"
+    fi
+
+    if [ -f /usr/share/images/$THEME/$ANSWER/login.png ]; then
+        cp /usr/share/images/$THEME/$ANSWER/login.png  /usr/share/desktop-theme-$NAME/backgrounds/$NAME-login.png;
+        echo "The login background for theme $ANSWER has been installed."
+
+    else
+    echo "No login-background found. Please make sure there is a file /usr/share/images/$THEME/$ANSWER/login.png"
+    fi
+
+    if [ -f /usr/share/images/$THEME/$ANSWER/grub.png ]; then
+        cp /usr/share/images/$THEME/$ANSWER/grub.png  /usr/share/desktop-theme-$NAME/grub/$NAME-grub.png;
+
+                if which update-grub2 > /dev/null ; then
+                sync            
+                update-grub2 || true
+                fi
+
+                if [ -x /usr/sbin/update-initramfs ]; then
+                update-initramfs -u
+                fi
+ 
+    echo "The Grub2 picture for the theme $ANSWER has been installed."
+
+    else
+    echo "No picture for GRUB2 found. Please make sure there is a file /usr/share/images/$THEME/$ANSWER/grub.png"
+    fi
+
+
+    fi
+    
+}
+
+
+# -------
+# INSTALL
+# -------
+
+# 1. Gnome Wallpaper
+#
+# 1.1 Clear cache
+#
+# Until the cache in the users home directory has been cleared, the 
+# user will see the old wallpaper.
+
+
+clear_wallpaper_cache_as_root() {
+    rm -f /home/*/.cache/wallpaper/*
+}
+
+# 1.2 Initialize the wallpaper
+#
+# The new theme has to be initialized once through gsettings, even 
+# though it uses the same alternative as the old one.
+#
+# To do this for all users, we put a script into the gnome autostart
+# folder. The script is executed only once. So the users stay free 
+# to choose individual wallpapers and our desktop-theme won't keep 
+# popping up every time Gnome is started.
+
+set_gnome_wallpaper_as_root() {
+    OUT="$(mktemp)"
+    cat <<EOF > $OUT
+[Desktop Entry]
+Type=Application
+Name=Desktop Theme Package Installer
+Comment=Activates the wallpaper in Gnome. Runs only once. Puts an .id file into the home directories to prevent it from running every time Gnome is started.
+Exec=/bin/sh -c "/usr/bin/test -f ~/.$THEME.id || /usr/bin/gsettings set org.gnome.desktop.background picture-uri file:///usr/share/images/desktop-base/desktop-background; /bin/touch ~/.$THEME.id"
+OnlyShowIn=GNOME;
+EOF
+    mv $OUT /etc/xdg/autostart/$THEME.desktop; 
+    chmod 644 /etc/xdg/autostart/$THEME.desktop;
+    find /home -name ".$THEME.id" -delete    
+}
+
+
+# 2. KDE
+
+# 2.1 Wallpaper
+#
+# The Debian Wheezy theme "Joy" is "hardcoded" as KDE wallpaper and
+# can't be changed by using alternatives. This is resolved in Jessy 
+# (see desktop-base Bug#690731)
+# 
+# Until then we must change a KDE config file to point to our theme.
+
+set_kde_wallpaper_as_root() {
+    sed -i "s/wallpaper=.*/wallpaper=$THEME/" /home/*/.kde/share/config/plasma-desktop-appletsrc 2>/dev/null
+}
+
+
+# 2.2 Ksplash
+#
+# Two files in the users home directory may still activate a former
+# Ksplash theme:
+#
+# $HOME/.kde/share/config/startupconfig.
+# $HOME/.kde/share/config/ksplashrc
+#
+# We have to update these settings in order to point to our theme.
+
+set_ksplash_theme_as_root() {
+    sed -i "s/ksplashrc_ksplash_theme=.*/ksplashrc_ksplash_theme=$THEME/" /home/*/.kde/share/config/startupconfig 2>/dev/null;
+    sed -i "s/ksplashrc_ksplash_engine=.*/ksplashrc_ksplash_engine=KSplashX/" /home/*/.kde/share/config/startupconfig 2>/dev/null;
+    sed -i "s/Theme=.*/Theme=$THEME/" /home/*/.kde/share/config/ksplashrc 2>/dev/null;
+    sed -i "s/Engine=.*/Engine=KSplashX/" /home/*/.kde/share/config/ksplashrc 2>/dev/null
+}
+
+
+# 2.3 KDM
+#
+# If the user changed the KDM theme manually in KDE systemsettings, 
+# the changes have been saved to the file "/etc/kde4/kdm/kdmrc" and 
+# overwritten the line: 
+#
+# Theme=@@@ToBeReplacedByDesktopBase@@@
+#
+# This line configured an override for the Debian KDM configuration.
+# If present, /etc/init.d/kdm will create the KDM theme configuration
+# in /var/run/kdm/kdmrc, using the values of the file with the highest
+# priority in /etc/default/kdm.d (normally "10_desktop-base"). 
+#
+# Unfortunately it does not seem possible to set the value in 
+# /etc/kde4/kdm/kdmrc back to @@@ToBeReplacedByDesktopBase@@@ without
+# crashing KDM at logout. 
+#
+# So we play it safe and just point the configuration to our theme.
+
+set_kdm_theme() {
+	sed -i "/@@@ToBeReplacedByDesktopBase@@@/!s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$THEME/" /etc/kde4/kdm/kdmrc 2>/dev/null;
+	sed -i "s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$THEME/" /var/run/kdm/kdmrc 2>/dev/null
+}
+
+
+# 3. Update alternatives
+#
+# The alternatives are cached. An update clears the cache.
+
+set_alternatives_auto() {
+    update-alternatives --auto desktop-background
+    update-alternatives --auto desktop-login
+}
+
+
+
+# ---------
+# UNINSTALL
+# ---------
+# The uninstall procedures should be run after the desktop-theme-
+# package has been uninstalled.
+
+# 1. Gnome
+
+reset_gnome_wallpaper_as_root() {
+    rm -f /etc/xdg/autostart/$THEME.desktop;
+    find /home -name ".$THEME.id" -delete
+}
+
+
+# 2. KDE 
+#
+# 2.1 KDE Wallpaper
+#
+# Note: This won't be necessary for Jessy.
+
+reset_kde_wallpaper_as_root() {
+    sed -i "s/wallpaper=.*/wallpaper=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/plasma-desktop-appletsrc 2>/dev/null
+}
+
+# 2.2 KSplash
+#
+# Our theme and the Debian default theme both use the KSplashX 
+# engine. So we do not touch the engine configuration.
+
+reset_ksplash_theme_as_root() {
+    sed -i "s/ksplashrc_ksplash_theme=$THEME/ksplashrc_ksplash_theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/startupconfig 2>/dev/null;
+    sed -i "s/Theme=$THEME/Theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/ksplashrc 2>/dev/null
+}
+
+
+# 2.3 KDM
+#
+# We reset /etc/kde4/kdm/kdmrc to the Debian default.
+
+reset_kdm_theme() {
+if [ -f /var/run/kdm/kdmrc ]; then
+    sed -i '/@@@ToBeReplacedByDesktopBase@@@/!s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /etc/kde4/kdm/kdmrc 2>/dev/null;
+    sed -i 's/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /var/run/kdm/kdmrc 2>/dev/null
+fi
+}
+
+
+# 3. Reset alternatives
+
+reset_alternatives_auto() {
+    update-alternatives --auto desktop-background
+}
+# The alternative "desktop-login" was part of the desktop-theme-
+# package and should be already uninstalled by now.
+
+
+# ------------
+# Script stuff
+# ------------
+
+install_theme_for_all_users() {
+	 choose_theme
+    clear_wallpaper_cache_as_root
+    set_alternatives_auto
+    set_gnome_wallpaper_as_root
+    set_kde_wallpaper_as_root
+    set_ksplash_theme_as_root
+    set_kdm_theme
+}
+
+uninstall_theme_for_all_users() {
+    reset_gnome_wallpaper_as_root
+    reset_kde_wallpaper_as_root
+    reset_ksplash_theme_as_root
+    reset_kdm_theme
+    clear_wallpaper_cache_as_root
+    reset_alternatives_auto
+}
+
+
+# Displays the current help
+usage() {
+    cat <<EOF
+Desktop theme utility
+
+Updates user and system desktop default theme and artwork.
+
+Usage:  $0 [-i|-r]
+        $0 [-h|--help|-?]
+
+Where:
+    -i
+        Installs the theme
+
+    -r
+        Removes the theme
+
+    -h
+    -?
+    --help
+        Displays the current help text and exit
+
+EOF
+}
+
+# Main
+argc="$#"
+argv="$1"
+
+if [ $argc -eq 0 ] ; then usage ; exit 0; fi
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        -i)
+            shift
+            install_theme_for_all_users
+        ;;
+        
+        -r)
+            shift
+            uninstall_theme_for_all_users
+        ;;
+
+        *)
+            usage
+        ;;
+    esac
+    shift
+done
+

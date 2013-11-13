@@ -1,0 +1,8 @@
+[KdmGreeterTheme]
+Encoding=UTF-8
+Greeter=desktop-theme-package.xml
+Name=desktop-theme-package
+Description=KDM Meta theme for theme packages
+Author=Ulrich Hansen
+Copyright=(c) 2012 Ulrich Hansen <uhansen@debianart.org>, (c) 2010 Roman Shtylman <shtylman@gmail.com>
+Screenshot=screenshot.png

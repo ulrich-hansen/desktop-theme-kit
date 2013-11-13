@@ -1,0 +1,23 @@
+#!/bin/sh
+# preinst script for desktop-theme-custom
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# If there is already another theme package (and another ksplashrc diversion)
+# installed, install a small marker file for postrm.
+test -f /usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc.real \
+    && touch /usr/share/desktop-base/profiles/kde-profile/share/config/.ksplashrc.custom.id;
+
+# desktop-base configures ksplashrc directly to point to it's background svg.
+# So we need a diversion of ksplashrc. But only if there isn't another theme
+# package present that already did that.
+test -f /usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc.real \
+    || dpkg-divert --package desktop-theme-custom --add --rename \
+    --divert /usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc.real \
+    /usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc;
+
+#DEBHELPER#
+
+exit 0

@@ -1,0 +1,8 @@
+<background>
+  <static>
+    <duration>8640000.0</duration>
+    <file>
+      <size width="1920" height="1080">/usr/share/images/desktop-base/desktop-login</size>
+    </file>
+  </static>
+</background>

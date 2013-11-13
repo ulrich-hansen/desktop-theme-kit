@@ -1,0 +1,158 @@
+#!/bin/sh
+# postinst script for desktop-theme-custom
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Count the previously installed desktop-theme-packages in /usr/share
+# and add their number to the priority. So the last installed package
+# always gets the highest priority.
+base_priority=90
+desktop_theme_packages=$(find /usr/share/desktop-theme-* -prune | wc -l)
+priority=$((base_priority+$desktop_theme_packages))
+
+install_alternatives() {
+    update-alternatives --install \
+        /usr/share/images/desktop-base/desktop-background \
+        desktop-background \
+        /usr/share/desktop-theme-custom/backgrounds/custom-wallpaper.png $priority
+
+    update-alternatives --install \
+        /usr/share/images/desktop-base/desktop-background.xml \
+        desktop-background.xml \
+        /usr/share/desktop-theme-custom/backgrounds/custom-gnome-lockscreen.xml $priority
+
+    update-alternatives --install \
+        /usr/share/gdm/dconf/15-desktop-theme-settings \
+        desktop-gdm3-background \
+        /usr/share/desktop-theme-custom/gdm3/custom-gdm3-background.conf $priority
+
+    update-alternatives --install \
+        /usr/share/images/desktop-base/desktop-grub.png \
+        desktop-grub \
+        /usr/share/desktop-theme-custom/grub/custom-grub.png $priority
+
+    update-alternatives --install \
+	/usr/share/images/desktop-base/desktop-grub-theme \
+	desktop-grub-theme \
+	/usr/share/desktop-theme-custom/grub/theme/theme.txt $priority
+
+    update-alternatives --install \
+	/usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc \
+	desktop-ksplash-conf \
+	/usr/share/desktop-theme-custom/ksplash/custom-ksplash.conf $priority
+
+    update-alternatives --install \
+        /usr/share/kde4/apps/ksplash/Themes/desktop-theme-package \
+        desktop-ksplash-theme \
+        /usr/share/kde4/apps/ksplash/Themes/custom $priority
+
+    update-alternatives --install \
+        /etc/default/kdm.d/15_desktop-theme \
+        desktop-kdm-conf \
+        /usr/share/desktop-theme-custom/kdm-theme/custom-kdm.conf $priority
+
+    update-alternatives --install \
+        /usr/share/kde4/apps/kdm/themes/desktop-theme-package \
+        desktop-kdm-theme \
+        /usr/share/kde4/apps/kdm/themes/custom $priority
+
+    update-alternatives --install \
+        /usr/share/kde4/apps/plasma-desktop/init/15-desktop-theme.js \
+        desktop-kde-conf \
+        /usr/share/desktop-theme-custom/kde-wallpaper/custom-kde-wallpaper.conf $priority
+
+    update-alternatives --install \
+        /usr/share/wallpapers/desktop-theme-package \
+        desktop-kde-theme \
+        /usr/share/wallpapers/custom $priority
+
+    update-alternatives --install \
+	/usr/share/images/desktop-base/desktop-login \
+	desktop-login \
+	/usr/share/desktop-theme-custom/backgrounds/custom-login.png $priority
+}
+
+set_alternatives_auto() {
+    update-alternatives --auto desktop-background
+    update-alternatives --auto desktop-background.xml
+    update-alternatives --auto desktop-gdm3-background
+    update-alternatives --auto desktop-grub
+    update-alternatives --auto desktop-grub-theme
+    update-alternatives --auto desktop-ksplash-conf
+    update-alternatives --auto desktop-ksplash-theme
+    update-alternatives --auto desktop-kdm-conf
+    update-alternatives --auto desktop-kdm-theme
+    update-alternatives --auto desktop-kde-conf
+    update-alternatives --auto desktop-kde-theme
+    update-alternatives --auto desktop-login
+}
+
+install_logfile() {
+    # To keep track of the installed plymouth themes, we use a logfile in /var.
+    test -f /var/log/desktop-theme-packages.log || touch /var/log/desktop-theme-packages.log
+    echo "custom" >> /var/log/desktop-theme-packages.log
+}
+
+update_plymouth_config() {
+    if which plymouth-set-default-theme > /dev/null ; then
+        plymouth-set-default-theme custom || true
+    fi
+}
+
+update_grub_config() {
+    if which update-grub2 > /dev/null ; then
+        sync
+        update-grub2 || true
+    fi
+
+    if [ -x /usr/sbin/update-initramfs ]; then
+        update-initramfs -u
+    fi
+}
+
+update_gdm3_config() {
+    # Reset the gdm3 wallpaper cache
+    rm -f /var/lib/gdm3/.cache/wallpaper/*
+    # Reload the gdm3 configuration
+    if [ -x /usr/sbin/gdm3 ]; then
+        invoke-rc.d gdm3 reload || true
+    fi
+}
+
+update_kdm_config() {
+    # The KDM theme is configured when KDM is started. To understand what's going on,
+    # take a look at the function "setup_config" in "/etc/init.d/kdm".
+    # So if KDM is already running, we need to reload it to make our theme visible.
+    if [ -f /run/kdm.pid ]; then
+        invoke-rc.d kdm reload || true
+    fi
+}
+
+case "$1" in
+    configure|abort-upgrade)
+        install_alternatives
+        set_alternatives_auto
+        install_logfile
+        update_grub_config
+        update_gdm3_config
+        update_kdm_config
+        update_plymouth_config
+    ;;
+
+    abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+# dh_installdeb will replace this with shell code automatically
+# generated by other debhelper scripts.
+
+#DEBHELPER#
+
+exit 0

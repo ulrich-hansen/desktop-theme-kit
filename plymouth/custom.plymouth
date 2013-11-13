@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=custom
+Description=Plymouth theme of the desktop theme package
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/custom
+ScriptFile=/usr/share/plymouth/themes/custom/custom.script

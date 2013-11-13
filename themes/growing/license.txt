@@ -1,0 +1,3 @@
+Artwork: Growing
+Author: Franz Grazer <franz.gratzer@fsfe.org>
+License: GNU GPL v2 or (at your option) any later version.  

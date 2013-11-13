@@ -1,0 +1,3 @@
+Artwork: Roj
+Author: Eshat Cakar <info@eshat.de>
+License: GNU GPL v2 or (at your option) any later version.  
