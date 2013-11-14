@@ -43,7 +43,6 @@ mkdirs:
 	mkdir -p $(DESTDIR)/usr/share/images/desktop-theme-package/journey
 	
 
-
 install-backgrounds: mkdirs
 	$(INSTALL) backgrounds/$(THEME)-wallpaper.png $(DESTDIR)/usr/share/desktop-theme-$(THEME)/backgrounds/
 	$(INSTALL) backgrounds/$(THEME)-login.png $(DESTDIR)/usr/share/desktop-theme-$(THEME)/backgrounds/
