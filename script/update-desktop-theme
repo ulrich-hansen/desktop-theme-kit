@@ -30,7 +30,6 @@ NAME=custom
 #-------------
 
 
-
 choose_theme() {
 echo "Please type the name of the new theme you wish to install. Or type 'a' for abort."
 cd /usr/share/images/$THEME/
@@ -77,7 +76,6 @@ read ANSWER
 
 
     fi
-    
 }
 
 
@@ -192,6 +190,8 @@ set_alternatives_auto() {
 
 
 
+
+
 # ---------
 # UNINSTALL
 # ---------
@@ -248,12 +248,14 @@ reset_alternatives_auto() {
 # package and should be already uninstalled by now.
 
 
+
+
 # ------------
 # Script stuff
 # ------------
 
 install_theme_for_all_users() {
-	 choose_theme
+	choose_theme
     clear_wallpaper_cache_as_root
     set_alternatives_auto
     set_gnome_wallpaper_as_root
