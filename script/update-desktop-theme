@@ -112,7 +112,7 @@ set_gnome_wallpaper_as_root() {
 Type=Application
 Name=Desktop Theme Package Installer
 Comment=Activates the wallpaper in Gnome. Runs only once. Puts an .id file into the home directories to prevent it from running every time Gnome is started.
-Exec=/bin/sh -c "/usr/bin/test -f ~/.$THEME.id || /usr/bin/gsettings set org.gnome.desktop.background picture-uri file:///usr/share/images/desktop-base/desktop-background; /bin/touch ~/.$THEME.id"
+Exec=/bin/sh -c "/usr/bin/test -f ~/.$THEME.id || /usr/bin/gsettings set org.gnome.desktop.background picture-uri file:///usr/share/images/desktop-base/desktop-background; /usr/bin/test -f ~/.$THEME.id || /bin/touch ~/.$THEME.id"
 OnlyShowIn=GNOME;
 EOF
     mv $OUT /etc/xdg/autostart/$THEME.desktop; 
@@ -187,8 +187,6 @@ set_alternatives_auto() {
     update-alternatives --auto desktop-background
     update-alternatives --auto desktop-login
 }
-
-
 
 
 
