@@ -1,9 +1,9 @@
-desktop-theme-custom (1.0.0~exp1) experimental; urgency=low
+desktop-theme-package (1.0.0~exp1) experimental; urgency=low
 
   [Ronoaldo JLP]
   * Initial Release
   
   [Ulrich Hansen]
-  * Added full artwork of the theme "custom".
+  * Added scripts and artwork.
 
  -- Ronoaldo JLP <ronoaldo@gmail.com>  Tue, 26 Jun 2012 23:32:35 -0300

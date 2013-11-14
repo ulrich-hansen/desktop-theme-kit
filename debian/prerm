@@ -1,5 +1,5 @@
 #!/bin/sh
-# prerm script for desktop-theme-custom
+# prerm script for desktop-theme-package
 #
 # see: dh_installdeb(1)
 
