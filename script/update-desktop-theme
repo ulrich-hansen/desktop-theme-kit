@@ -100,8 +100,8 @@ read ANSWER
     echo "No picture for GRUB2 found. Please make sure there is a file /usr/share/images/$PACKAGE/$ANSWER/grub.png"
     fi
 
-
     fi
+	echo "Please re-login to see the changes."
 }
 
 
