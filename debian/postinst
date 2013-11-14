@@ -8,7 +8,7 @@ set -e
 # Count the previously installed desktop-theme-packages in /usr/share
 # and add their number to the priority. So the last installed package
 # always gets the highest priority.
-base_priority=90
+base_priority=80
 desktop_theme_packages=$(find /usr/share/desktop-theme-* -prune | wc -l)
 priority=$((base_priority+$desktop_theme_packages))
 
