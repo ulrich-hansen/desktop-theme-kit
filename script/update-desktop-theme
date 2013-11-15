@@ -118,7 +118,8 @@ read ANSWER
 
 
 clear_wallpaper_cache_as_root() {
-    rm -f /home/*/.cache/wallpaper/*
+    rm -f /home/*/.cache/wallpaper/*  2>/dev/null;
+	rm -f -r /home/*/.kde/cache-debian/*
 }
 
 # 1.2 Initialize the wallpaper
