@@ -1,9 +1,14 @@
 #!/bin/sh
-# postinst script for desktop-theme-package
+# postinst script for desktop-theme-custom
 #
 # see: dh_installdeb(1)
 
 set -e
+
+
+THEME=custom
+PACKAGE=desktop-theme-package
+
 
 # Count the previously installed desktop-theme-packages in /usr/share
 # and add their number to the priority. So the last installed package
@@ -16,62 +21,62 @@ install_alternatives() {
     update-alternatives --install \
         /usr/share/images/desktop-base/desktop-background \
         desktop-background \
-        /usr/share/desktop-theme-custom/backgrounds/custom-wallpaper.png $priority
+        /usr/share/desktop-theme-$THEME/backgrounds/$THEME-wallpaper.png $priority
 
     update-alternatives --install \
         /usr/share/images/desktop-base/desktop-background.xml \
         desktop-background.xml \
-        /usr/share/desktop-theme-custom/backgrounds/custom-gnome-lockscreen.xml $priority
+        /usr/share/desktop-theme-$THEME/backgrounds/$THEME-gnome-lockscreen.xml $priority
 
     update-alternatives --install \
         /usr/share/gdm/dconf/15-desktop-theme-settings \
         desktop-gdm3-background \
-        /usr/share/desktop-theme-custom/gdm3/custom-gdm3-background.conf $priority
+        /usr/share/desktop-theme-$THEME/gdm3/$THEME-gdm3-background.conf $priority
 
     update-alternatives --install \
         /usr/share/images/desktop-base/desktop-grub.png \
         desktop-grub \
-        /usr/share/desktop-theme-custom/grub/custom-grub.png $priority
+        /usr/share/desktop-theme-$THEME/grub/$THEME-grub.png $priority
 
     update-alternatives --install \
 	/usr/share/images/desktop-base/desktop-grub-theme \
 	desktop-grub-theme \
-	/usr/share/desktop-theme-custom/grub/theme/theme.txt $priority
+	/usr/share/desktop-theme-$THEME/grub/theme/theme.txt $priority
 
     update-alternatives --install \
 	/usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc \
 	desktop-ksplash-conf \
-	/usr/share/desktop-theme-custom/ksplash/custom-ksplash.conf $priority
+	/usr/share/desktop-theme-$THEME/ksplash/$THEME-ksplash.conf $priority
 
     update-alternatives --install \
-        /usr/share/kde4/apps/ksplash/Themes/desktop-theme-package \
+        /usr/share/kde4/apps/ksplash/Themes/$PACKAGE \
         desktop-ksplash-theme \
-        /usr/share/kde4/apps/ksplash/Themes/custom $priority
+        /usr/share/kde4/apps/ksplash/Themes/$THEME $priority
 
     update-alternatives --install \
         /etc/default/kdm.d/15_desktop-theme \
         desktop-kdm-conf \
-        /usr/share/desktop-theme-custom/kdm-theme/custom-kdm.conf $priority
+        /usr/share/desktop-theme-$THEME/kdm-theme/$THEME-kdm.conf $priority
 
     update-alternatives --install \
-        /usr/share/kde4/apps/kdm/themes/desktop-theme-package \
+        /usr/share/kde4/apps/kdm/themes/$PACKAGE \
         desktop-kdm-theme \
-        /usr/share/kde4/apps/kdm/themes/custom $priority
+        /usr/share/kde4/apps/kdm/themes/$THEME $priority
 
     update-alternatives --install \
         /usr/share/kde4/apps/plasma-desktop/init/15-desktop-theme.js \
         desktop-kde-conf \
-        /usr/share/desktop-theme-custom/kde-wallpaper/custom-kde-wallpaper.conf $priority
+        /usr/share/desktop-theme-$THEME/kde-wallpaper/$THEME-kde-wallpaper.conf $priority
 
     update-alternatives --install \
-        /usr/share/wallpapers/desktop-theme-package \
+        /usr/share/wallpapers/$PACKAGE \
         desktop-kde-theme \
-        /usr/share/wallpapers/custom $priority
+        /usr/share/wallpapers/$THEME $priority
 
     update-alternatives --install \
 	/usr/share/images/desktop-base/desktop-login \
 	desktop-login \
-	/usr/share/desktop-theme-custom/backgrounds/custom-login.png $priority
+	/usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png $priority
 }
 
 set_alternatives_auto() {
@@ -92,12 +97,12 @@ set_alternatives_auto() {
 install_logfile() {
     # To keep track of the installed plymouth themes, we use a logfile in /var.
     test -f /var/log/desktop-theme-packages.log || touch /var/log/desktop-theme-packages.log
-    echo "custom" >> /var/log/desktop-theme-packages.log
+    echo "$THEME" >> /var/log/desktop-theme-packages.log
 }
 
 update_plymouth_config() {
     if which plymouth-set-default-theme > /dev/null ; then
-        plymouth-set-default-theme custom || true
+        plymouth-set-default-theme $THEME || true
     fi
 }
 

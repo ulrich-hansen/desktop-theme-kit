@@ -1,20 +1,25 @@
 #!/bin/sh
-# postrm script for desktop-theme-package
+# postrm script for desktop-theme-custom
 #
 # see: dh_installdeb(1)
 
 set -e
 
+THEME=custom
+PACKAGE=desktop-theme-package
+DEBIAN_DEFAULT=joy
+
+
 # Restores the Plymouth theme to the previous one
 restore_plymouth_theme() {
-    sed -i  '/custom/d' /var/log/desktop-theme-packages.log
+    sed -i  '/$THEME/d' /var/log/desktop-theme-packages.log
     # Get previous theme
         ls /usr/share/desktop-theme-* > /dev/null 2>&1 && plymouth_theme=$(tail -1 /var/log/desktop-theme-packages.log)
     # If there is no more desktop-theme package installed, remove the logfile
         ls /usr/share/desktop-theme-* > /dev/null 2>&1 || rm -f /var/log/desktop-theme-packages.log
     # Set plymouth to previous theme
     if which plymouth-set-default-theme > /dev/null ; then
-        ls /usr/share/desktop-theme-* > /dev/null 2>&1 && plymouth-set-default-theme $plymouth_theme || plymouth-set-default-theme joy
+        ls /usr/share/desktop-theme-* > /dev/null 2>&1 && plymouth-set-default-theme $plymouth_theme || plymouth-set-default-theme $DEBIAN_DEFAULT
         test -d /usr/share/images/desktop-base || plymouth-set-default-theme -r 
     fi
 }
@@ -44,12 +49,12 @@ case "$1" in
 
         # Remove diversion - but only if there isn't any other theme package that needs it:
             ls /usr/share/desktop-base/profiles/kde-profile/share/config/.ksplashrc.*.id > /dev/null 2>&1 \
-	    || dpkg-divert --package desktop-theme-custom --remove --rename \
+	    || dpkg-divert --package desktop-theme-$THEME --remove --rename \
             --divert /usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc.real \
             /usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc
 
         # Remove the small id that signaled the existence of another theme package to this one:
-        find /usr/share/desktop-base/profiles/kde-profile/share/config/ -name ".ksplashrc.custom.id" -delete
+        find /usr/share/desktop-base/profiles/kde-profile/share/config/ -name ".ksplashrc.$THEME.id" -delete
 
     ;;
 

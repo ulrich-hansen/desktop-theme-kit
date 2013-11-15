@@ -5,8 +5,10 @@
 # THEME CONFIG BEGIN
 
 THEME=custom
+ARTWORK_FOLDER=desktop-themes
 
 # THEME CONFIG END
+
 
 INSTALL=install -m 0644
 
@@ -35,12 +37,12 @@ mkdirs:
 	mkdir -p $(DESTDIR)/usr/share/gnome-background-properties/
 	mkdir -p $(DESTDIR)/etc/xdg/autostart/
 	mkdir -p $(DESTDIR)/usr/bin/
-	mkdir -p $(DESTDIR)/usr/share/images/desktop-theme-package/growing
-	mkdir -p $(DESTDIR)/usr/share/images/desktop-theme-package/elegance-blue
-	mkdir -p $(DESTDIR)/usr/share/images/desktop-theme-package/elegance-sepia
-	mkdir -p $(DESTDIR)/usr/share/images/desktop-theme-package/jethro
-	mkdir -p $(DESTDIR)/usr/share/images/desktop-theme-package/roj
-	mkdir -p $(DESTDIR)/usr/share/images/desktop-theme-package/journey
+	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/growing
+	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/elegance-blue
+	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/elegance-sepia
+	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/jethro
+	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/roj
+	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/journey
 	
 
 install-backgrounds: mkdirs
@@ -92,12 +94,12 @@ install-script: mkdirs
 
 
 install-themes: mkdirs
-	$(INSTALL) $(wildcard themes/growing/*.* ) $(DESTDIR)/usr/share/images/desktop-theme-package/growing/
-	$(INSTALL) $(wildcard themes/elegance-blue/*.* ) $(DESTDIR)/usr/share/images/desktop-theme-package/elegance-blue/
-	$(INSTALL) $(wildcard themes/elegance-sepia/*.* ) $(DESTDIR)/usr/share/images/desktop-theme-package/elegance-sepia/
-	$(INSTALL) $(wildcard themes/roj/*.* ) $(DESTDIR)/usr/share/images/desktop-theme-package/roj/
-	$(INSTALL) $(wildcard themes/jethro/*.* ) $(DESTDIR)/usr/share/images/desktop-theme-package/jethro/
-	$(INSTALL) $(wildcard themes/journey/*.* ) $(DESTDIR)/usr/share/images/desktop-theme-package/journey/
+	$(INSTALL) $(wildcard themes/growing/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/growing/
+	$(INSTALL) $(wildcard themes/elegance-blue/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/elegance-blue/
+	$(INSTALL) $(wildcard themes/elegance-sepia/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/elegance-sepia/
+	$(INSTALL) $(wildcard themes/roj/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/roj/
+	$(INSTALL) $(wildcard themes/jethro/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/jethro/
+	$(INSTALL) $(wildcard themes/journey/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/journey/
 
 
 install: install-backgrounds install-plymouth install-grub install-gdm3 install-ksplash install-kdm install-kde install-readme install-script install-themes

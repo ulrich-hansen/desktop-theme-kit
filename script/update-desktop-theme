@@ -19,7 +19,7 @@
 #          uninstall the desktop-theme-package.
 # 
 # To use your own artwork, please copy it as root to:
-# /usr/share/images/desktop-theme-package/[FOLDER]
+# /usr/share/images/desktop-themes/[FOLDER]
 # 
 # Give [FOLDER] a name and put your artwork into it.
 # It should contain three images:
@@ -45,10 +45,10 @@
 # Stop on failures
 set -e
 
-
-PACKAGE=desktop-theme-package
-DEBIAN_DEFAULT=joy
 THEME=custom
+PACKAGE=desktop-theme-package
+ARTWORK_FOLDER=desktop-themes
+DEBIAN_DEFAULT=joy
 
 
 # ------------
@@ -57,8 +57,8 @@ THEME=custom
 
 
 choose_theme() {
-echo "Please type the name of the theme you wish to install. Or type 'a' for abort."
-cd /usr/share/images/$PACKAGE/
+echo "Please type the name of the new theme you wish to install. Or type 'a' for abort."
+cd /usr/share/images/$ARTWORK_FOLDER/
 for i in $(ls -d */); do echo ${i%%/}; done
 read ANSWER
     
@@ -66,24 +66,24 @@ read ANSWER
     echo "No new theme chosen. Activating the existing theme."
     else
 
-    if [ -f /usr/share/images/$PACKAGE/$ANSWER/wallpaper.png ]; then
-        cp /usr/share/images/$PACKAGE/$ANSWER/wallpaper.png  /usr/share/desktop-theme-$THEME/backgrounds/$THEME-wallpaper.png;
+    if [ -f /usr/share/images/$ARTWORK_FOLDER/$ANSWER/wallpaper.png ]; then
+        cp /usr/share/images/$ARTWORK_FOLDER/$ANSWER/wallpaper.png  /usr/share/desktop-theme-$THEME/backgrounds/$THEME-wallpaper.png;
     echo "The wallpaper for the theme $ANSWER has been installed."
 
     else
-    echo "No wallpaper found. Please make sure there is a file /usr/share/images/$PACKAGE/$ANSWER/wallpaper.png"
+    echo "No wallpaper found. Please make sure there is a file /usr/share/images/$ARTWORK_FOLDER/$ANSWER/wallpaper.png"
     fi
 
-    if [ -f /usr/share/images/$PACKAGE/$ANSWER/login.png ]; then
-        cp /usr/share/images/$PACKAGE/$ANSWER/login.png  /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png;
+    if [ -f /usr/share/images/$ARTWORK_FOLDER/$ANSWER/login.png ]; then
+        cp /usr/share/images/$ARTWORK_FOLDER/$ANSWER/login.png  /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png;
         echo "The login background for theme $ANSWER has been installed."
 
     else
-    echo "No login-background found. Please make sure there is a file /usr/share/images/$PACKAGE/$ANSWER/login.png"
+    echo "No login-background found. Please make sure there is a file /usr/share/images/$ARTWORK_FOLDER/$ANSWER/login.png"
     fi
 
-    if [ -f /usr/share/images/$PACKAGE/$ANSWER/grub.png ]; then
-        cp /usr/share/images/$PACKAGE/$ANSWER/grub.png  /usr/share/desktop-theme-$THEME/grub/$THEME-grub.png;
+    if [ -f /usr/share/images/$ARTWORK_FOLDER/$ANSWER/grub.png ]; then
+        cp /usr/share/images/$ARTWORK_FOLDER/$ANSWER/grub.png  /usr/share/desktop-theme-$THEME/grub/$THEME-grub.png;
 
                 if which update-grub2 > /dev/null ; then
                 sync            
@@ -97,11 +97,11 @@ read ANSWER
     echo "The Grub2 picture for the theme $ANSWER has been installed."
 
     else
-    echo "No picture for GRUB2 found. Please make sure there is a file /usr/share/images/$PACKAGE/$ANSWER/grub.png"
+    echo "No picture for GRUB2 found. Please make sure there is a file /usr/share/images/$ARTWORK_FOLDER/$ANSWER/grub.png"
     fi
 
-
     fi
+    echo "Please re-login to see the changes."
 }
 
 
@@ -118,7 +118,8 @@ read ANSWER
 
 
 clear_wallpaper_cache_as_root() {
-    rm -f /home/*/.cache/wallpaper/*
+    rm -f /home/*/.cache/wallpaper/*  2>/dev/null;
+    rm -f -r /home/*/.kde/cache-debian/*
 }
 
 # 1.2 Initialize the wallpaper
@@ -256,8 +257,8 @@ reset_ksplash_theme_as_root() {
 # We reset /etc/kde4/kdm/kdmrc to the Debian default.
 
 reset_kdm_theme() {
-sed -i '/@@@ToBeReplacedByDesktopBase@@@/!s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /etc/kde4/kdm/kdmrc 2>/dev/null;
 if [ -f /var/run/kdm/kdmrc ]; then
+    sed -i '/@@@ToBeReplacedByDesktopBase@@@/!s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /etc/kde4/kdm/kdmrc 2>/dev/null;
     sed -i 's/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /var/run/kdm/kdmrc 2>/dev/null
 fi
 }
