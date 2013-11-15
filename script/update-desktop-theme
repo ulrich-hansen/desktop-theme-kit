@@ -100,8 +100,8 @@ read ANSWER
     echo "No picture for GRUB2 found. Please make sure there is a file /usr/share/images/$PACKAGE/$ANSWER/grub.png"
     fi
 
+
     fi
-	echo "Please re-login to see the changes."
 }
 
 
@@ -118,8 +118,7 @@ read ANSWER
 
 
 clear_wallpaper_cache_as_root() {
-    rm -f /home/*/.cache/wallpaper/*  2>/dev/null;
-	rm -f -r /home/*/.kde/cache-debian/*
+    rm -f /home/*/.cache/wallpaper/*
 }
 
 # 1.2 Initialize the wallpaper
