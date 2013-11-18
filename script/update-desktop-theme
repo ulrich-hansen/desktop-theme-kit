@@ -206,7 +206,17 @@ set_kdm_theme() {
 }
 
 
-# 3. Update alternatives
+
+# 3. lightdm
+
+set_lightdm() {
+if [ -f /etc/lightdm/lightdm-gtk-greeter.conf ]; then
+	sed -i "s/background=.*/background=\/usr\/share\/images\/desktop-base\/desktop-login.png/" /etc/lightdm/lightdm-gtk-greeter.conf 2>/dev/null
+fi
+}
+
+
+# 4. Update alternatives
 #
 # The alternatives are cached. An update clears the cache.
 
@@ -214,6 +224,7 @@ set_alternatives_auto() {
     update-alternatives --auto desktop-background
     update-alternatives --auto desktop-login
 }
+
 
 
 
@@ -264,13 +275,23 @@ fi
 }
 
 
-# 3. Reset alternatives
+# 3. lightdm
+
+reset_ightdm() {
+if [ -f /etc/lightdm/lightdm-gtk-greeter.conf ]; then
+	sed -i "s/background=.*/background=\/usr\/share\/images\/desktop-base\/login-background.svg/" /etc/lightdm/lightdm-gtk-greeter.conf 2>/dev/null
+fi
+}
+
+
+
+# 4. Reset alternatives
 
 reset_alternatives_auto() {
     update-alternatives --auto desktop-background
 }
-# The alternative "desktop-login" was part of the desktop-theme-
-# package and should be already uninstalled by now.
+# The alternative "desktop-login" is part of the desktop-theme-
+# package and will be uninstalled if you uninstall the package.
 
 
 
@@ -294,6 +315,7 @@ uninstall_theme_for_all_users() {
     reset_kde_wallpaper_as_root
     reset_ksplash_theme_as_root
     reset_kdm_theme
+	reset_lightdm
     clear_wallpaper_cache_as_root
     reset_alternatives_auto
 }
