@@ -214,7 +214,7 @@ fi
 
 set_lightdm() {
 if [ -f /etc/lightdm/lightdm-gtk-greeter.conf ]; then
-sed -i "s/background=.*/background=\/usr\/share\/images\/desktop-base\/desktop-login.png/" /etc/lightdm/lightdm-gtk-greeter.conf
+sed -i "s/background=.*/background=\/usr\/share\/images\/desktop-base\/desktop-login/" /etc/lightdm/lightdm-gtk-greeter.conf
 fi
 }
 
