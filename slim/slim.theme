@@ -4,15 +4,29 @@
 # Screen background style. Valid values: stretch, tile
 background_style        stretch
 
-# Input controls
+# Position of login-box "panel.png".
 input_panel_x           50%
 input_panel_y           50%
+
+# Field for username
 input_name_x            95
 input_name_y            127
+
+# Field for password
 input_pass_x            95
 input_pass_y            172
 
+# Fonts and Colors for username/password.
 input_font          	Cantarell:size=12:bold
 input_color		#767677
 input_bgcolor           #000000
 input_fgcolor           #ffffff
+
+# Show the hostname
+welcome_font          	Cantarell:size=13:bold
+welcome_color          	#888987
+welcome_x              	126
+welcome_y              	93
+welcome_msg             %host
+
+
