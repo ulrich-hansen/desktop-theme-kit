@@ -119,7 +119,7 @@ read ANSWER
 
 clear_wallpaper_cache_as_root() {
     rm -f /home/*/.cache/wallpaper/*  2>/dev/null;
-    rm -f -r /home/*/.kde/cache-debian/*
+#    rm -f -r /home/*/.kde/cache-debian/*;
 }
 
 # 1.2 Initialize the wallpaper
@@ -142,9 +142,9 @@ Comment=Activates the wallpaper in Gnome. Runs only once. Puts an .id file into 
 Exec=/bin/sh -c "/usr/bin/test -f ~/.$PACKAGE.id || /usr/bin/gsettings set org.gnome.desktop.background picture-uri file:///usr/share/images/desktop-base/desktop-background; /usr/bin/test -f ~/.$PACKAGE.id || /bin/touch ~/.$PACKAGE.id"
 OnlyShowIn=GNOME;
 EOF
-    mv $OUT /etc/xdg/autostart/$PACKAGE.desktop; 
+    mv $OUT /etc/xdg/autostart/$PACKAGE.desktop;
     chmod 644 /etc/xdg/autostart/$PACKAGE.desktop;
-    find /home -name ".$PACKAGE.id" -delete    
+    find /home -name ".$PACKAGE.id" -delete;
 }
 
 
@@ -159,7 +159,7 @@ EOF
 # Until then we must change a KDE config file to point to our theme.
 
 set_kde_wallpaper_as_root() {
-    sed -i "s/wallpaper=.*/wallpaper=$PACKAGE/" /home/*/.kde/share/config/plasma-desktop-appletsrc 2>/dev/null
+    sed -i "s/wallpaper=.*/wallpaper=$PACKAGE/" /home/*/.kde/share/config/plasma-desktop-appletsrc;
 }
 
 
@@ -174,10 +174,10 @@ set_kde_wallpaper_as_root() {
 # We have to update these settings in order to point to our theme.
 
 set_ksplash_theme_as_root() {
-    sed -i "s/ksplashrc_ksplash_theme=.*/ksplashrc_ksplash_theme=$PACKAGE/" /home/*/.kde/share/config/startupconfig 2>/dev/null;
-    sed -i "s/ksplashrc_ksplash_engine=.*/ksplashrc_ksplash_engine=KSplashX/" /home/*/.kde/share/config/startupconfig 2>/dev/null;
-    sed -i "s/Theme=.*/Theme=$PACKAGE/" /home/*/.kde/share/config/ksplashrc 2>/dev/null;
-    sed -i "s/Engine=.*/Engine=KSplashX/" /home/*/.kde/share/config/ksplashrc 2>/dev/null
+    sed -i "s/ksplashrc_ksplash_theme=.*/ksplashrc_ksplash_theme=$PACKAGE/" /home/*/.kde/share/config/startupconfig;
+    sed -i "s/ksplashrc_ksplash_engine=.*/ksplashrc_ksplash_engine=KSplashX/" /home/*/.kde/share/config/startupconfig;
+    sed -i "s/Theme=.*/Theme=$PACKAGE/" /home/*/.kde/share/config/ksplashrc;
+    sed -i "s/Engine=.*/Engine=KSplashX/" /home/*/.kde/share/config/ksplashrc;
 }
 
 
@@ -201,22 +201,45 @@ set_ksplash_theme_as_root() {
 # So we play it safe and just point the configuration to our theme.
 
 set_kdm_theme() {
-	sed -i "/@@@ToBeReplacedByDesktopBase@@@/!s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$PACKAGE/" /etc/kde4/kdm/kdmrc 2>/dev/null;
-	sed -i "s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$PACKAGE/" /var/run/kdm/kdmrc 2>/dev/null
-}
+	sed -i "/@@@ToBeReplacedByDesktopBase@@@/!s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$PACKAGE/" /etc/kde4/kdm/kdmrc;
 
+if [ -f /var/run/kdm/kdmrc ]; then
+	sed -i "s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$PACKAGE/" /var/run/kdm/kdmrc;
+fi
+}
 
 
 # 3. lightdm
 
 set_lightdm() {
 if [ -f /etc/lightdm/lightdm-gtk-greeter.conf ]; then
-	sed -i "s/background=.*/background=\/usr\/share\/images\/desktop-base\/desktop-login.png/" /etc/lightdm/lightdm-gtk-greeter.conf 2>/dev/null
+sed -i "s/background=.*/background=\/usr\/share\/images\/desktop-base\/desktop-login.png/" /etc/lightdm/lightdm-gtk-greeter.conf;
+fi
+}
+
+# 4. SLIM
+set_slim() {
+if [ -f /etc/slim.conf ]; then
+	sed -i "s/current_theme.*/current_theme        $PACKAGE/" /etc/slim.conf;
 fi
 }
 
 
-# 4. Update alternatives
+# 5. Plymouth
+set_plymouth() {
+if [ -d /usr/share/plymouth/themes/$THEME/ ]; then
+/bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/plymouth/themes/$THEME/background.png;
+fi}
+
+# 6. Grub
+set_grub() {
+/bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/desktop-theme-$THEME/grub/theme/background.png;
+}
+
+
+
+
+# 7. Update alternatives
 #
 # The alternatives are cached. An update clears the cache.
 
@@ -268,27 +291,53 @@ reset_ksplash_theme_as_root() {
 # We reset /etc/kde4/kdm/kdmrc to the Debian default.
 
 reset_kdm_theme() {
+if [ -f /etc/kde4/kdm/kdmrc ]; then
+    sed -i '/@@@ToBeReplacedByDesktopBase@@@/!s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /etc/kde4/kdm/kdmrc
+fi
 if [ -f /var/run/kdm/kdmrc ]; then
-    sed -i '/@@@ToBeReplacedByDesktopBase@@@/!s/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /etc/kde4/kdm/kdmrc 2>/dev/null;
-    sed -i 's/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /var/run/kdm/kdmrc 2>/dev/null
+    sed -i 's/^Theme=.*/Theme=\/usr\/share\/kde4\/apps\/kdm\/themes\/$DEBIAN_DEFAULT/' /var/run/kdm/kdmrc
 fi
 }
 
 
 # 3. lightdm
 
-reset_ightdm() {
+reset_lightdm() {
 if [ -f /etc/lightdm/lightdm-gtk-greeter.conf ]; then
-	sed -i "s/background=.*/background=\/usr\/share\/images\/desktop-base\/login-background.svg/" /etc/lightdm/lightdm-gtk-greeter.conf 2>/dev/null
+    sed -i "s/background=.*/background=\/usr\/share\/images\/desktop-base\/login-background.svg/" /etc/lightdm/lightdm-gtk-greeter.conf
+fi
+}
+
+
+# 4. SLIM
+reset_slim() {
+if [ -f /etc/slim.conf ]; then
+	sed -i "s/current_theme.*/current_theme debian-$DEBIAN_DEFAULT/" /etc/slim.conf;
+fi
+}
+
+# 5. Plymouth
+
+reset_plymouth() {
+if [ -f /usr/share/plymouth/themes/$THEME/background.png ]; then
+       rm /usr/share/plymouth/themes/$THEME/background.png
 fi
 }
 
 
 
-# 4. Reset alternatives
+# 6. Grub
+reset_grub() {
+if [ -f /usr/share/desktop-theme-$THEME/grub/theme/background.png ]; then
+	rm /usr/share/desktop-theme-$THEME/grub/theme/background.png
+fi
+}
 
+
+
+# 7. Reset alternatives
 reset_alternatives_auto() {
-    update-alternatives --auto desktop-background
+    update-alternatives --auto desktop-background;
 }
 # The alternative "desktop-login" is part of the desktop-theme-
 # package and will be uninstalled if you uninstall the package.
@@ -301,13 +350,17 @@ reset_alternatives_auto() {
 # ------------
 
 install_theme_for_all_users() {
-	choose_theme
+    choose_theme
     clear_wallpaper_cache_as_root
     set_alternatives_auto
     set_gnome_wallpaper_as_root
     set_kde_wallpaper_as_root
     set_ksplash_theme_as_root
     set_kdm_theme
+    set_lightdm
+    set_slim
+    set_plymouth
+    set_grub
 }
 
 uninstall_theme_for_all_users() {
@@ -315,7 +368,10 @@ uninstall_theme_for_all_users() {
     reset_kde_wallpaper_as_root
     reset_ksplash_theme_as_root
     reset_kdm_theme
-	reset_lightdm
+    reset_lightdm
+    reset_slim
+    reset_plymouth
+    reset_grub
     clear_wallpaper_cache_as_root
     reset_alternatives_auto
 }

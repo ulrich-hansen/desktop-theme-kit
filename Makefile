@@ -5,6 +5,7 @@
 # THEME CONFIG BEGIN
 
 THEME=custom
+PACKAGE=desktop-theme-package
 ARTWORK_FOLDER=desktop-themes
 
 # THEME CONFIG END
@@ -43,6 +44,7 @@ mkdirs:
 	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/jethro
 	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/roj
 	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/journey
+	mkdir -p $(DESTDIR)/usr/share/slim/themes/$(PACKAGE)/
 	
 
 install-backgrounds: mkdirs
@@ -54,7 +56,6 @@ install-backgrounds: mkdirs
 
 install-plymouth: mkdirs
 	$(INSTALL) $(wildcard plymouth/*) $(DESTDIR)/usr/share/plymouth/themes/$(THEME)/
-	$(INSTALL) backgrounds/$(THEME)-login.png $(DESTDIR)/usr/share/plymouth/themes/$(THEME)/background.png
 
 
 install-grub: mkdirs
@@ -84,6 +85,8 @@ install-kde: mkdirs
 #	$(INSTALL) $(wildcard kde-wallpaper/theme/contents/images/*) $(DESTDIR)/usr/share/wallpapers/$(THEME)/contents/images/
 	$(INSTALL) kde-wallpaper/$(THEME)-kde-wallpaper.conf $(DESTDIR)/usr/share/desktop-theme-$(THEME)/kde-wallpaper/
 
+install-slim: mkdirs
+	$(INSTALL) $(wildcard slim/*) $(DESTDIR)/usr/share/slim/themes/$(PACKAGE)/
 
 install-readme: mkdirs
 	$(INSTALL) $(wildcard readme/*) $(DESTDIR)/usr/share/desktop-theme-$(THEME)/readme/
@@ -102,5 +105,6 @@ install-themes: mkdirs
 	$(INSTALL) $(wildcard themes/journey/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/journey/
 
 
-install: install-backgrounds install-plymouth install-grub install-gdm3 install-ksplash install-kdm install-kde install-readme install-script install-themes
+
+install: install-backgrounds install-plymouth install-grub install-gdm3 install-ksplash install-kdm install-kde install-readme install-slim install-script install-themes
 	

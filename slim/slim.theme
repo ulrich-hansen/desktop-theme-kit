@@ -1,0 +1,18 @@
+# desktop-theme-package artwork for SLIM
+# by Ulrich Hansen <uhansen@debianart.org>
+
+# Screen background style. Valid values: stretch, tile
+background_style        stretch
+
+# Input controls
+input_panel_x           50%
+input_panel_y           50%
+input_name_x            95
+input_name_y            127
+input_pass_x            95
+input_pass_y            172
+
+input_font          	Cantarell:size=12:bold
+input_color		#767677
+input_bgcolor           #000000
+input_fgcolor           #ffffff
