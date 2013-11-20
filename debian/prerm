@@ -1,11 +1,11 @@
 #!/bin/sh
-# prerm script for desktop-theme-custom
+# prerm script for desktop-theme-kit
 #
 # see: dh_installdeb(1)
 
 set -e
 
-THEME=custom
+THEME=kit
 
 
 uninstall_alternatives() {

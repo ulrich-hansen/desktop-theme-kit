@@ -4,7 +4,7 @@
 
 # THEME CONFIG BEGIN
 
-THEME=custom
+THEME=kit
 PACKAGE=desktop-theme-package
 ARTWORK_FOLDER=desktop-themes
 

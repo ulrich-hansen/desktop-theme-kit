@@ -1,11 +1,11 @@
 #!/bin/sh
-# postrm script for desktop-theme-custom
+# postrm script for desktop-theme-kit
 #
 # see: dh_installdeb(1)
 
 set -e
 
-THEME=custom
+THEME=kit
 PACKAGE=desktop-theme-package
 DEBIAN_DEFAULT=joy
 

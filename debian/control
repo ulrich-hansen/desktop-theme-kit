@@ -1,4 +1,4 @@
-Source: desktop-theme-custom
+Source: desktop-theme-kit
 Section: x11
 Priority: optional
 Maintainer: Ronoaldo JLP <ronoaldo@gmail.com>
@@ -8,10 +8,10 @@ Standards-Version: 3.9.3
 Homepage: http://wiki.debian.org/DebianArt/Themes/
 Vcs-Hg: https://bitbucket.org/ronoaldo/desktop-theme-growing
 
-Package: desktop-theme-custom
+Package: desktop-theme-kit
 Pre-Depends: dpkg (>= 1.15.7.2~), desktop-base
 Architecture: all
 Suggests: gnome | kde-standard | xfce4 | wmaker, plymouth-themes-script
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: custom desktop theme
- This package allows root to install custom desktop themes for Debian.
+Description: kit desktop theme
+ This package allows root to install kit desktop themes for Debian.

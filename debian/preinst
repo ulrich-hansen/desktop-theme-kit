@@ -1,11 +1,11 @@
 #!/bin/sh
-# preinst script for desktop-theme-custom
+# preinst script for desktop-theme-kit
 #
 # see: dh_installdeb(1)
 
 set -e
 
-THEME=custom
+THEME=kit
 
 # If there is already another theme package (and another ksplashrc diversion)
 # installed, install a small marker file for postrm.

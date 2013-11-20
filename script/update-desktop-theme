@@ -45,7 +45,7 @@
 # Stop on failures
 set -e
 
-THEME=custom
+THEME=kit
 PACKAGE=desktop-theme-package
 ARTWORK_FOLDER=desktop-themes
 DEBIAN_DEFAULT=joy
@@ -84,7 +84,6 @@ read ANSWER
 
     if [ -f /usr/share/images/$ARTWORK_FOLDER/$ANSWER/grub.png ]; then
         cp /usr/share/images/$ARTWORK_FOLDER/$ANSWER/grub.png  /usr/share/desktop-theme-$THEME/grub/$THEME-grub.png;
-    fi
  
     echo "The Grub2 picture for the theme $ANSWER has been installed."
 
@@ -241,6 +240,7 @@ set_grub() {
 if which update-grub2 > /dev/null ; then
 sync            
 update-grub2 || true
+fi
 }
 
 
