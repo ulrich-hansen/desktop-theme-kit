@@ -1,4 +1,0 @@
-# Since we ship an alternative to the real file in order to make it configurable,
-# ignore the diversion-for-unknown-file. This should be fixed when ksplash themes
-# become more configurable.
-desktop-theme-package: diversion-for-unknown-file usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc preinst:19
