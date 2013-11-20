@@ -234,9 +234,9 @@ fi
 }
 
 # 6. Grub
-set_grub() {
-/bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/desktop-theme-$THEME/grub/theme/background.png
-}
+#set_grub() {
+#/bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/desktop-theme-$THEME/grub/theme/background.png
+#}
 
 
 
@@ -329,11 +329,11 @@ fi
 
 
 # 6. Grub
-reset_grub() {
-if [ -f /usr/share/desktop-theme-$THEME/grub/theme/background.png ]; then
-	rm /usr/share/desktop-theme-$THEME/grub/theme/background.png
-fi
-}
+#reset_grub() {
+#if [ -f /usr/share/desktop-theme-$THEME/grub/theme/background.png ]; then
+#	rm /usr/share/desktop-theme-$THEME/grub/theme/background.png
+#fi
+#}
 
 
 
