@@ -84,15 +84,7 @@ read ANSWER
 
     if [ -f /usr/share/images/$ARTWORK_FOLDER/$ANSWER/grub.png ]; then
         cp /usr/share/images/$ARTWORK_FOLDER/$ANSWER/grub.png  /usr/share/desktop-theme-$THEME/grub/$THEME-grub.png;
-
-                if which update-grub2 > /dev/null ; then
-                sync            
-                update-grub2 || true
-                fi
-
-                if [ -x /usr/sbin/update-initramfs ]; then
-                update-initramfs -u
-                fi
+    fi
  
     echo "The Grub2 picture for the theme $ANSWER has been installed."
 
@@ -228,15 +220,28 @@ fi
 
 # 5. Plymouth
 set_plymouth() {
+
 if [ -d /usr/share/plymouth/themes/$THEME/ ]; then
 /bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/plymouth/themes/$THEME/background.png
+fi
+
+if [ -x /usr/sbin/plymouth-set-default-theme ]; then
+plymouth-set-default-theme $THEME
+fi
+
+if [ -x /usr/sbin/update-initramfs ]; then
+update-initramfs -u
 fi
 }
 
 # 6. Grub
-#set_grub() {
-#/bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/desktop-theme-$THEME/grub/theme/background.png
-#}
+set_grub() {
+/bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/desktop-theme-$THEME/grub/theme/background.png
+
+if which update-grub2 > /dev/null ; then
+sync            
+update-grub2 || true
+}
 
 
 
@@ -329,11 +334,11 @@ fi
 
 
 # 6. Grub
-#reset_grub() {
-#if [ -f /usr/share/desktop-theme-$THEME/grub/theme/background.png ]; then
-#	rm /usr/share/desktop-theme-$THEME/grub/theme/background.png
-#fi
-#}
+reset_grub() {
+if [ -f /usr/share/desktop-theme-$THEME/grub/theme/background.png ]; then
+	rm /usr/share/desktop-theme-$THEME/grub/theme/background.png
+fi
+}
 
 
 
