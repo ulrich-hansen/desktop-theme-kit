@@ -14,4 +14,4 @@ Architecture: all
 Suggests: gnome | kde-standard | xfce4 | wmaker, plymouth-themes-script
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: kit desktop theme
- This package allows root to install kit desktop themes for Debian.
+ This package allows root to install custom desktop themes for Debian.
