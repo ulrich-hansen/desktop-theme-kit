@@ -23,55 +23,16 @@ install_alternatives() {
         desktop-background \
         /usr/share/desktop-theme-$THEME/backgrounds/$THEME-wallpaper.png $priority
 
+	# desktop-background.xml means actually the Gnome lockscreen only.
     update-alternatives --install \
         /usr/share/images/desktop-base/desktop-background.xml \
         desktop-background.xml \
         /usr/share/desktop-theme-$THEME/backgrounds/$THEME-gnome-lockscreen.xml $priority
 
     update-alternatives --install \
-        /usr/share/gdm/dconf/15-desktop-theme-settings \
-        desktop-gdm3-background \
-        /usr/share/desktop-theme-$THEME/gdm3/$THEME-gdm3-background.conf $priority
-
-    update-alternatives --install \
         /usr/share/images/desktop-base/desktop-grub.png \
         desktop-grub \
         /usr/share/desktop-theme-$THEME/grub/$THEME-grub.png $priority
-
-    update-alternatives --install \
-	/usr/share/images/desktop-base/desktop-grub-theme \
-	desktop-grub-theme \
-	/usr/share/desktop-theme-$THEME/grub/theme/theme.txt $priority
-
-    update-alternatives --install \
-	/usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc \
-	desktop-ksplash-conf \
-	/usr/share/desktop-theme-$THEME/ksplash/$THEME-ksplash.conf $priority
-
-    update-alternatives --install \
-        /usr/share/kde4/apps/ksplash/Themes/$PACKAGE \
-        desktop-ksplash-theme \
-        /usr/share/kde4/apps/ksplash/Themes/$THEME $priority
-
-    update-alternatives --install \
-        /etc/default/kdm.d/15_desktop-theme \
-        desktop-kdm-conf \
-        /usr/share/desktop-theme-$THEME/kdm-theme/$THEME-kdm.conf $priority
-
-    update-alternatives --install \
-        /usr/share/kde4/apps/kdm/themes/$PACKAGE \
-        desktop-kdm-theme \
-        /usr/share/kde4/apps/kdm/themes/$THEME $priority
-
-    update-alternatives --install \
-        /usr/share/kde4/apps/plasma-desktop/init/15-desktop-theme.js \
-        desktop-kde-conf \
-        /usr/share/desktop-theme-$THEME/kde-wallpaper/$THEME-kde-wallpaper.conf $priority
-
-    update-alternatives --install \
-        /usr/share/wallpapers/$PACKAGE \
-        desktop-kde-theme \
-        /usr/share/wallpapers/$THEME $priority
 
     update-alternatives --install \
 	/usr/share/images/desktop-base/desktop-login \
@@ -82,15 +43,7 @@ install_alternatives() {
 set_alternatives_auto() {
     update-alternatives --auto desktop-background
     update-alternatives --auto desktop-background.xml
-    update-alternatives --auto desktop-gdm3-background
     update-alternatives --auto desktop-grub
-    update-alternatives --auto desktop-grub-theme
-    update-alternatives --auto desktop-ksplash-conf
-    update-alternatives --auto desktop-ksplash-theme
-    update-alternatives --auto desktop-kdm-conf
-    update-alternatives --auto desktop-kdm-theme
-    update-alternatives --auto desktop-kde-conf
-    update-alternatives --auto desktop-kde-theme
     update-alternatives --auto desktop-login
 }
 

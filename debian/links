@@ -1,4 +1,20 @@
-/usr/share/images/desktop-base/desktop-login /usr/share/kde4/apps/ksplash/Themes/kit/1920x1080/background.png
+# Slim
 /usr/share/images/desktop-base/desktop-login /usr/share/slim/themes/desktop-theme-package/background.png
+# KDE
+/usr/share/desktop-theme-kit/kde-wallpaper/kit-kde-wallpaper.conf /usr/share/kde4/apps/plasma-desktop/init/15-desktop-theme.js
+/usr/share/wallpapers/kit /usr/share/wallpapers/desktop-theme-package
+# still KDE - 1920x1080 is actually the picture. We do not specify a 
+# file extension, as we do not know if the picture is svg or bitmap.
 /usr/share/images/desktop-base/desktop-background /usr/share/wallpapers/kit/contents/images/1920x1080
+# KDM
+/usr/share/kde4/apps/kdm/themes/kit /usr/share/kde4/apps/kdm/themes/desktop-theme-package
+/usr/share/desktop-theme-kit/kdm-theme/kit-kdm.conf /etc/default/kdm.d/15_desktop-theme 
+# KSplash
+/usr/share/kde4/apps/ksplash/Themes/kit /usr/share/kde4/apps/ksplash/Themes/desktop-theme-package
+/usr/share/desktop-theme-kit/ksplash/kit-ksplash.conf /usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc
+/usr/share/images/desktop-base/desktop-login /usr/share/kde4/apps/ksplash/Themes/kit/1920x1080/background.png
+# Grub2 Theme
+/usr/share/desktop-theme-kit/grub/theme/theme.txt /usr/share/images/desktop-base/desktop-grub-theme
+# GDM3
+/usr/share/desktop-theme-kit/gdm3/kit-gdm3-background.conf /usr/share/gdm/dconf/15-desktop-theme-settings
 

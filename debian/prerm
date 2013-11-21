@@ -18,40 +18,8 @@ uninstall_alternatives() {
         /usr/share/desktop-theme-$THEME/backgrounds/$THEME-gnome-lockscreen.xml
 
     update-alternatives --remove \
-        desktop-gdm3-background \
-        /usr/share/desktop-theme-$THEME/gdm3/$THEME-gdm3-background.conf
-
-    update-alternatives --remove \
         desktop-grub \
         /usr/share/desktop-theme-$THEME/grub/$THEME-grub.png
-
-    update-alternatives --remove \
-        desktop-grub-theme \
-        /usr/share/desktop-theme-$THEME/grub/theme/theme.txt
-
-    update-alternatives --remove \
-        desktop-ksplash-conf \
-        /usr/share/desktop-theme-$THEME/ksplash/$THEME-ksplash.conf
-
-    update-alternatives --remove \
-        desktop-ksplash-theme \
-        /usr/share/kde4/apps/ksplash/Themes/$THEME
-
-    update-alternatives --remove \
-        desktop-kdm-conf \
-        /usr/share/desktop-theme-$THEME/kdm-theme/$THEME-kdm.conf
-
-    update-alternatives --remove \
-        desktop-kdm-theme \
-        /usr/share/kde4/apps/kdm/themes/$THEME
-
-    update-alternatives --remove \
-        desktop-kde-conf \
-        /usr/share/desktop-theme-$THEME/kde-wallpaper/$THEME-kde-wallpaper.conf
-
-    update-alternatives --remove \
-        desktop-kde-theme \
-        /usr/share/wallpapers/$THEME
 
     update-alternatives --remove \
         desktop-login \
