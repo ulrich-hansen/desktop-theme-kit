@@ -43,7 +43,7 @@ just the desktop wallpaper.
 == Who shouldn’t use it ==
 
 People on multiuser systems, who just want to change their wallpaper. 
-Not everybody wants to see your cat pictures when they log in their 
+Not everybody wants to see your cat picture when they log in their 
 system. :-)
 
 
@@ -103,7 +103,7 @@ name for instance “forestproject” and copy the folder to:
 
 As last step, please run 
 
-“update-desktop-theme -i”  
+update-desktop-theme -i  
 
 again. The name of your folder should now be on the list of themes. 
 Type it and voilà.
