@@ -99,7 +99,7 @@ not all programs accept SVG files.
 Now put these three pictures in a folder, give the folder a fitting 
 name for instance “forestproject” and copy the folder to:
 
-/usr/share/images/desktop-themes/*
+"/usr/share/images/desktop-themes/*"
 
 As last step, please run 
 
