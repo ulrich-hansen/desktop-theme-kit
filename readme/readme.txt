@@ -119,7 +119,7 @@ update-desktop-theme -r
 to reset the configuration files to the Debian default theme. Then 
 uninstall the package by typing:
 
-dpkg –r desktop-theme-kit
+dpkg -r desktop-theme-kit
 
 Thanks for using the package. Have fun!
 

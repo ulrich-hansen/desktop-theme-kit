@@ -1,44 +1,32 @@
 #!/bin/bash
 
 # Name and location of this script:
+#
 # /usr/bin/update-theme-package
 #
-# This script is part of the desktop-theme-package.It 
-# finishes the installation of that package.
+# This script is part of the desktop-theme-package. It finishes the 
+# installation of that package.
 #
 # It is supposed to be run as root.
 # 
 # Description:
 # 
 # update-desktop-theme [-i]
-#          choose and install a theme for all users.
+#	            choose and install a theme for all users.
 #
 # update-desktop-theme [-r]
-#          remove all changes and go back to the
-#          Debian default theme. Use this before you 
-#          uninstall the desktop-theme-package.
+#   	        remove all changes and go back to the
+#       	    Debian default theme. Use this before you 
+#          	    uninstall the desktop-theme-package.
 # 
-# To use your own artwork, please copy it as root to:
-# /usr/share/images/desktop-themes/[FOLDER]
-# 
-# Give [FOLDER] a name and put your artwork into it.
-# It should contain three images:
+# Please see:
 #
-#           wallpaper.png (used by Gnome/KDE
-#                 and any DM that use the Debian
-#                 alternative "desktop-background")
+# /usr/share/desktop-theme-kit/readme/readme.txt
 #
-#           login.png (for GDM3, KSplash, KDM, 
-#                 Plymouth, Grub2 Theme)
+# for more information about this package and how to use your own 
+# artwork.
 #
-#           grub.png (for a static Grub2-menu)
-#
-# Please run this script afterwards.
-# 
-# The desktop-theme-package should be available at: 
-# http://wiki.debian.org/DebianArt/Themes.
-#
-# Copyright (C) 2012 Ulrich Hansen <uhansen@debianart.org>
+# Copyright (C) 2012, 2013 Ulrich Hansen <uhansen@debianart.org>
 #               2012 Ronoaldo JLP <ronoaldo@gmail.com>
 
 
