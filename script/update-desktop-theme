@@ -335,7 +335,7 @@ reset_alternatives_auto() {
     update-alternatives --auto desktop-background;
 }
 # The alternative "desktop-login" is part of the desktop-theme-
-# package and will be uninstalled if you uninstall the package.
+# package and will be uninstalled anyway.
 
 
 
