@@ -12,6 +12,7 @@
 # KSplash
 /usr/share/kde4/apps/ksplash/Themes/kit /usr/share/kde4/apps/ksplash/Themes/desktop-theme-package
 /usr/share/desktop-theme-kit/ksplash/kit-ksplash.conf /usr/share/desktop-base/profiles/kde-profile/share/config/ksplashrc
+# Ksplash needs a file-extension:
 /usr/share/images/desktop-base/desktop-login /usr/share/kde4/apps/ksplash/Themes/kit/1920x1080/background.png
 # Grub2 Theme
 /usr/share/desktop-theme-kit/grub/theme/theme.txt /usr/share/images/desktop-base/desktop-grub-theme
