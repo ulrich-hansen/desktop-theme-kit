@@ -15,7 +15,7 @@
 #	            choose and install a theme for all users.
 #
 # update-desktop-theme [-r]
-#   	        remove all changes and go back to the
+#               remove all changes and go back to the
 #       	    Debian default theme. Use this before you 
 #          	    uninstall the desktop-theme-package.
 # 
