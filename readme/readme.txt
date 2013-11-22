@@ -60,7 +60,7 @@ Afterwards please run our install script. This script changes the
 lines in various configuration files to point to our theme. Command 
 (as root):
 
-update-desktop-theme –i
+update-desktop-theme -i
 
 The script will show you a list of themes that are included in the 
 desktop-theme-kit. Please choose one by typing its name. Afterwards 
