@@ -1,0 +1,3 @@
+Artwork: Elegance Blue
+Author: Ulrich Hansen <uhansen@debianart.org>
+License: GNU GPL v2 or (at your option) any later version.  
