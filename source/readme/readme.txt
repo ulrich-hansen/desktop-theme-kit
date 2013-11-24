@@ -40,7 +40,7 @@ just the desktop wallpaper.
 
 
 
-== Who shouldn’t use it ==
+== Who shouldn't use it ==
 
 People on multiuser systems, who just want to change their wallpaper. 
 Not everybody wants to see your cat picture when they log in their 
