@@ -64,6 +64,11 @@ read ANSWER
 
     if [ -f /usr/share/images/$ARTWORK_FOLDER/$ANSWER/login.png ]; then
         cp /usr/share/images/$ARTWORK_FOLDER/$ANSWER/login.png  /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png;
+		
+		if [ -x /usr/bin/convert ]; then		
+		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize "1024x768" -gravity center -crop 1024x768+0+0 +repage /usr/share/kde4/apps/ksplash/Themes/$THEME/1024x768/background.png;
+		fi
+
         echo "The login background for theme $ANSWER has been installed."
 
     else

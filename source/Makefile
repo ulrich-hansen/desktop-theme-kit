@@ -32,7 +32,13 @@ mkdirs:
 	mkdir -p $(DESTDIR)/usr/share/desktop-theme-$(THEME)/readme/
 	mkdir -p $(DESTDIR)/usr/share/plymouth/themes/$(THEME)/
 	mkdir -p $(DESTDIR)/etc/default/kdm.d/
+	mkdir -p $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/1024x768/
+	mkdir -p $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/1280x1024/
+	mkdir -p $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/1280x800/
+	mkdir -p $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/1366x768/
+	mkdir -p $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/1600x1200/
 	mkdir -p $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/1920x1080/
+	mkdir -p $(DESTDIR)/usr/share/kde4/apps/ksplash/Themes/$(THEME)/1920x1200/
 	mkdir -p $(DESTDIR)/usr/share/kde4/apps/kdm/themes/$(THEME)/
 	mkdir -p $(DESTDIR)/usr/share/wallpapers/$(THEME)/contents/images/
 	mkdir -p $(DESTDIR)/usr/share/gnome-background-properties/
