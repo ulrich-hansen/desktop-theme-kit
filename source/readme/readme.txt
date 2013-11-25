@@ -74,21 +74,11 @@ desktop-theme-kit comes with six themes included. But you may easily
 create your own: Only three picture files are needed:
 
 *	A login picture (used by GDM3, KDM, Ksplash, slim, lightdm, 
-	grub theme and plymouth).
-
-	The picture should be 1920x1080px. 
-	If you use KDE, please be aware that KSplash might distort the
-	picture. This is a known bug of KSplash. As a workaround use a
-	login picture that doesn’t contain circles, swirls or other 
-	elements that reveal the distortion. 
-
+	grub theme and plymouth). The picture should be 1920x1080px. 
 	The file should be named “login.png”.
 
 *	A wallpaper (used by Gnome, KDE, XFCE). The preferred size is
-	also 1920x1080px. It will be scaled and cropped correctly by all
-	three Desktop Environments.
-	
-	The file should have the name ”wallpaper.png”. 
+	also 1920x1080px. Please name the file ”wallpaper.png”. 
 
 *	And the classic Grub bootscreen picture. The size should be
 	640x480px. The file should be named “grub.png”
@@ -97,15 +87,15 @@ At the moment only pictures in PNG format are allowed. Unfortunately
 not all programs accept SVG files.
 
 Now put these three pictures in a folder, give the folder a fitting 
-name for instance “forestproject” and copy the folder to:
+name, for instance “forestproject” and copy the folder to:
 
 "/usr/share/images/desktop-themes/*"
 
-As last step, please run 
+As last step, please run again
 
 update-desktop-theme -i  
 
-again. The name of your folder should now be on the list of themes. 
+The name of your folder should now be on the list of themes. 
 Type it and voilà.
 
 
