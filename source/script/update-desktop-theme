@@ -45,7 +45,7 @@ DEBIAN_DEFAULT=joy
 
 
 choose_theme() {
-echo -e "\nHere's a list of all themes present in /usr/share/images/desktop-themes. Please type the name of the new theme you wish to install.\n"
+echo -e "\nHere's a list of all themes present in /usr/share/images/desktop-themes. \nPlease type the name of the new theme you wish to install.\n"
 cd /usr/share/images/$ARTWORK_FOLDER/
 for i in $(ls -d */); do echo ${i%%/}; done
 echo -e "\nOr type 'a' to just activate the default theme.\n"
@@ -323,13 +323,28 @@ reset_kde_wallpaper_as_root() {
 
 reset_ksplash_theme_as_root() {
     sed -i "s/ksplashrc_ksplash_theme=$PACKAGE/ksplashrc_ksplash_theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/startupconfig 2>/dev/null;
-    sed -i "s/Theme=$PACKAGE/Theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/ksplashrc 2>/dev/null
+    sed -i "s/Theme=$PACKAGE/Theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/ksplashrc 2>/dev/null;
+
+# We remove all the images in different resolutions, that we had 
+# imagemagick create when we installed the theme for KSplash.
+rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1024x768/background.png;
+rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x1024/background.png;
+rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x800/background.png;
+rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1366x768/background.png;
+rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1600x1200/background.png;
+rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
+rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1200/background.png;
 }
 
 
 # 2.3 KDM
 #
-# We reset /etc/kde4/kdm/kdmrc to the Debian default.
+# We reset /etc/kde4/kdm/kdmrc to the Debian default theme. As 
+# explained above, we avoid setting /etc/kde4/kdm/kdmrc to the 
+# original line "Theme=@@@ToBeReplacedByDesktopBase@@@". If we would 
+# not, KDM would not find a valid theme at logout and crash. If you 
+# really want to reset everything EXACTLY to how it was before, then 
+# set the value and reboot afterwards. 
 
 reset_kdm_theme() {
 if [ -f /etc/kde4/kdm/kdmrc ]; then
