@@ -87,15 +87,15 @@ At the moment only pictures in PNG format are allowed. Unfortunately
 not all programs accept SVG files.
 
 Now put these three pictures in a folder, give the folder a fitting 
-name for instance “forestproject” and copy the folder to:
+name, for instance “forestproject” and copy the folder to:
 
 "/usr/share/images/desktop-themes/*"
 
-As last step, please run 
+As last step, please run again
 
 update-desktop-theme -i  
 
-again. The name of your folder should now be on the list of themes. 
+The name of your folder should now be on the list of themes. 
 Type it and voilà.
 
 
