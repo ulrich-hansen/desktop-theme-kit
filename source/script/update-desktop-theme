@@ -65,8 +65,25 @@ read ANSWER
     if [ -f /usr/share/images/$ARTWORK_FOLDER/$ANSWER/login.png ]; then
         cp /usr/share/images/$ARTWORK_FOLDER/$ANSWER/login.png  /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png;
 		
-		if [ -x /usr/bin/convert ]; then		
-		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize "1024x768" -gravity center -crop 1024x768+0+0 +repage /usr/share/kde4/apps/ksplash/Themes/$THEME/1024x768/background.png;
+		if [ -x /usr/bin/convert ]; then
+		echo "Just a minute, I am calculating the resolutions for KSplash...";
+		
+		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1024x768^ -gravity center -extent 1024x768 /usr/share/kde4/apps/ksplash/Themes/$THEME/1024x768/background.png;
+		
+		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1280x1024^ -gravity center -extent 1280x1024 /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x1024/background.png;
+
+		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1280x800^ -gravity center -extent 1280x800 /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x800/background.png;
+				
+		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1366x768^ -gravity center -extent 1366x768 /usr/share/kde4/apps/ksplash/Themes/$THEME/1366x768/background.png;
+				
+		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1600x1200^ -gravity center -extent 1600x1200 /usr/share/kde4/apps/ksplash/Themes/$THEME/1600x1200/background.png;
+		
+		rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
+
+		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1920x1080^ -gravity center -extent 1920x1080 /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
+		
+		convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1920x1200^ -gravity center -extent 1920x1200 /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1200/background.png;
+
 		fi
 
         echo "The login background for theme $ANSWER has been installed."
