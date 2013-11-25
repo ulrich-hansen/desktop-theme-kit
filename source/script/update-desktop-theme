@@ -45,9 +45,10 @@ DEBIAN_DEFAULT=joy
 
 
 choose_theme() {
-echo -e "Here's a list of all themes present in /usr/share/images/desktop-themes. Please type the name of the new theme you wish to install.\n\nOr type 'a' to just activate the default theme.\n"
+echo -e "\nHere's a list of all themes present in /usr/share/images/desktop-themes. Please type the name of the new theme you wish to install.\n"
 cd /usr/share/images/$ARTWORK_FOLDER/
 for i in $(ls -d */); do echo ${i%%/}; done
+echo -e "\nOr type 'a' to just activate the default theme.\n"
 read ANSWER
     
     if [ "$ANSWER" == "a" ]; then
@@ -199,7 +200,7 @@ echo "Imagemagick resized 6 of 7 KSplash background pictures.";
 		
 convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1920x1200^ -gravity center -extent 1920x1200 /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1200/background.png;
 
-echo "Imagemagick resized 7 of 7 KSplash background pictures. Thanks for your patience!";
+echo -e "Imagemagick resized 7 of 7 KSplash background pictures. \nThanks for your patience!";
 
 fi
 }
@@ -401,7 +402,7 @@ install_theme_for_all_users() {
     set_slim
     set_plymouth
     set_grub
-	echo "The desktop-theme has been successfully updated. Please re-login to see the changes."
+	echo -e "The desktop-theme has been successfully updated. \nPlease re-login to see the changes."
 }
 
 uninstall_theme_for_all_users() {
