@@ -267,16 +267,48 @@ update-initramfs -u
 fi
 }
 
+
 # 6. Grub
 set_grub() {
-/bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/desktop-theme-$THEME/grub/theme/background.png
+# First of all we copy the login picture to the grub theme directory, 
+# so the chosen theme will always provide a grub theme background:
 
+/bin/cp -f -r /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png /usr/share/desktop-theme-$THEME/grub/theme/background.png;
+
+# Then we do some tricky things to avoid that the login-picture will
+# be distorted when we use it as background for the grub theme. So we
+# look for the resolution set by the line "GRUB_GFXMODE=" in 
+# /etc/default/grub. If this line is enabled, we use imagemagick
+# to convert the grub-theme background picture to that resolution.
+
+RESOLUTION=$( 
+# In the next line we just look for special characters in 
+# /etc/default/grub and ignore them:
+    for i in `cat /etc/default/grub  | sed -e '/\[/d' | sed -e '/\;/d' | sed -e '/\,/d' | sed -e '/\+/d' | sed -e '/\"/d' | sed -e '/\`/d' | grep '^[^#].*'`
+# then we read out the searched parameter
+    do
+    var=`echo "$i" | awk -F"=" '{print $1}'`
+    param=`echo "$i" | awk -F"=" '{print $2}'`
+    eval $var=$param
+    done
+    echo $GRUB_GFXMODE | sed 's/\//\\\//g'
+    )
+
+# If the line GRUB_GFXMODE in /etc/default/grub is disabled, the above
+# will produce an empty variable that we cannot use. So we first test
+# if our variable is not empty. Then we use imagemagick to convert 
+# the grub-theme background-picture to the correct resoultion.
+
+if [ "$RESOLUTION" ]; then
+convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize $RESOLUTION^ -gravity center -extent $RESOLUTION /usr/share/desktop-theme-$THEME/grub/theme/background.png;
+fi
+
+# And as always: update grub
 if which update-grub2 > /dev/null ; then
 sync            
 update-grub2 || true
 fi
 }
-
 
 
 
