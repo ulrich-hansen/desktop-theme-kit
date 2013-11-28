@@ -58,7 +58,7 @@ People on multiuser systems, who just want to change their wallpaper. Not everyb
 
 Download [desktop-theme-kit*.deb] (downloads) and install it by using the command: 
 
-`dpkg -i desktop-theme-kit.deb` 
+`dpkg -i desktop-theme-kit*.deb` 
 
 Afterwards please run our install script. This script changes the lines in various configuration files to point to our theme. Command (as root): 
 
