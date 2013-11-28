@@ -38,7 +38,7 @@ It also uses its own GUI elements (at the moment for kdm, slim, grub theme and p
 
  
 
-## Who wants to use it
+### Who wants to use it
 
 desktop-theme-kit is supposed to unify the look of your desktop. It does that for **ALL** users of your system. 
 
@@ -48,7 +48,7 @@ This is also a great tool for people who use Debian GNU/Linux as their desktop O
 
  
 
-## Who shouldn't use it 
+### Who shouldn't use it 
 
 People on multiuser systems, who just want to change their wallpaper. Not everybody wants to see your cat picture when they log in their system. :-) 
 
@@ -56,7 +56,7 @@ People on multiuser systems, who just want to change their wallpaper. Not everyb
 
 ## Installation
 
-Download desktop-theme-kit*.deb and install it by using the command: 
+Download [desktop-theme-kit*.deb] (download/) and install it by using the command: 
 
 `dpkg -i desktop-theme-kit.deb` 
 
