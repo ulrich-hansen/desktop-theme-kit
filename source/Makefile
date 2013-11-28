@@ -25,7 +25,7 @@ build:
 mkdirs:
 	mkdir -p $(DESTDIR)/usr/share/desktop-theme-$(THEME)/backgrounds/
 	mkdir -p $(DESTDIR)/usr/share/desktop-theme-$(THEME)/gdm3/
-	mkdir -p $(DESTDIR)/usr/share/desktop-theme-$(THEME)/grub/theme/icons/
+	mkdir -p $(DESTDIR)/usr/share/desktop-theme-$(THEME)/grub/theme-black/icons/
 	mkdir -p $(DESTDIR)/usr/share/desktop-theme-$(THEME)/kde-wallpaper/
 	mkdir -p $(DESTDIR)/usr/share/desktop-theme-$(THEME)/kdm-theme/
 	mkdir -p $(DESTDIR)/usr/share/desktop-theme-$(THEME)/ksplash/
@@ -66,8 +66,8 @@ install-plymouth: mkdirs
 
 install-grub: mkdirs
 	$(INSTALL) $(wildcard grub/*.* ) $(DESTDIR)/usr/share/desktop-theme-$(THEME)/grub
-	$(INSTALL) $(wildcard grub/theme/*.*) $(DESTDIR)/usr/share/desktop-theme-$(THEME)/grub/theme
-	$(INSTALL) $(wildcard grub/theme/icons/*.*) $(DESTDIR)/usr/share/desktop-theme-$(THEME)/grub/theme/icons
+	$(INSTALL) $(wildcard grub/theme-black/*.*) $(DESTDIR)/usr/share/desktop-theme-$(THEME)/grub/theme-black
+	$(INSTALL) $(wildcard grub/theme-black/icons/*.*) $(DESTDIR)/usr/share/desktop-theme-$(THEME)/grub/theme-black/icons
 
 
 install-gdm3: mkdirs
