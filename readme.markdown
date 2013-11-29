@@ -1,5 +1,4 @@
-# desktop-theme-kit
-**Customize the look of Debian GNU/Linux**
+![image](screenshots/headline.png) 
 
 The package desktop-theme-kit allows admins to customize the look of Debian GNU/Linux. In the past, graphics like wallpapers, login screens, lock screens or boot menus could be changed at various places and sometimes it was still hard to get it to work. 
 
