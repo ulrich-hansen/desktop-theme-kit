@@ -6,6 +6,10 @@
 # still KDE - 1920x1080 is actually the picture. We do not specify a 
 # file extension, as we do not know if the picture is svg or bitmap.
 /usr/share/images/desktop-base/desktop-background /usr/share/wallpapers/kit/contents/images/1920x1080
+# Grub themes
+# To use different GUIs we need to symlink to the theme-folder. So
+# all future GUI packages just need to change the symlink.
+/usr/share/desktop-theme-kit/grub/theme /usr/share/desktop-theme-kit/grub/theme-black
 # KDM
 /usr/share/kde4/apps/kdm/themes/kit /usr/share/kde4/apps/kdm/themes/desktop-theme-package
 /usr/share/desktop-theme-kit/kdm-theme/kit-kdm.conf /etc/default/kdm.d/15_desktop-theme 

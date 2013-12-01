@@ -1,0 +1,12 @@
+Debian Grub 2 theme
+Copyright Ulrich Hansen,
+uhansen@debianart.org, 18.03.2012
+--------------------------------
+
+This folder contains the GRUB2 theme files of the Debian GNU/Linux desktop-theme-package.
+
+License: GNU GPL version 2 or (at your option) any later version.
+A copy of the GNU GPL v2 can be found here:
+http://www.gnu.org/licenses/gpl-2.0.html
+
+--------------------------------
