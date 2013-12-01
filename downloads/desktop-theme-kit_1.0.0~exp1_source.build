@@ -1,0 +1,24 @@
+ dpkg-buildpackage -rfakeroot -d -us -uc -S
+dpkg-buildpackage: source package desktop-theme-kit
+dpkg-buildpackage: source version 1.0.0~exp1
+dpkg-buildpackage: source changed by Ronoaldo JLP <ronoaldo@gmail.com>
+ dpkg-source --before-build source
+ fakeroot debian/rules clean
+test -x debian/rules
+dh_testroot
+rm -f debian/stamp-makefile-build debian/stamp-makefile-install
+/usr/bin/make  -C . CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CXXFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall" CPPFLAGS="-D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"  -k clean
+make[1]: Entering directory `/home/ulrich/git/desktop-theme-kit/source'
+make[1]: `clean' is up to date.
+make[1]: Leaving directory `/home/ulrich/git/desktop-theme-kit/source'
+dh_clean 
+ dpkg-source -b source
+dpkg-source: info: using source format `3.0 (native)'
+dpkg-source: info: building desktop-theme-kit in desktop-theme-kit_1.0.0~exp1.tar.gz
+dpkg-source: info: building desktop-theme-kit in desktop-theme-kit_1.0.0~exp1.dsc
+ dpkg-genchanges -S >../desktop-theme-kit_1.0.0~exp1_source.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build source
+dpkg-buildpackage: source only upload: Debian-native package
+Now running lintian...
+Finished running lintian.
