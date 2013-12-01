@@ -31,14 +31,6 @@ desktop-theme-kit comes with six themes:
 And you may VERY easily create your own themes! Just take a look into the chapter about [installation](#installation) a little bit further.
 
  
-## How it works
-
-Basically desktop-theme-kit is just pointing all necessary configuration files to the pictures you want to use, using Debian alternatives whenever possible.  
-
-It also uses its own GUI elements (at the moment for kdm, slim, grub theme and plymouth).  
-
- 
-
 ## Our users
 
 desktop-theme-kit is supposed to unify the look of your desktop. It does that for **ALL** users of your system. 
@@ -46,8 +38,6 @@ desktop-theme-kit is supposed to unify the look of your desktop. It does that fo
 So this is an instrument for admins, who want to have the same look and feel on all their Debian GNU/Linux systems for all users (for instance in a company or a lab).  
 
 This is also a great tool for people who use Debian GNU/Linux as their desktop OS and want to see their favorite pictures on more than just the desktop wallpaper. 
-
- 
 
 ## Who shouldn't use it 
 
@@ -57,9 +47,15 @@ People on multiuser systems, who just want to change their wallpaper. Not everyb
 
 ## [Installation](id:Installation)
 
+At the moment, desktop-theme-kit installs in two steps:
+
+1. The .deb-package makes the groundwork. It installs all the files needed, updates debian-alternatives, sets some symbolic links and configuration files.
+
+2. The install script "update-desktop-theme" lets you select a theme. It points all necessary configuration files to the pictures you want to use, using Debian alternatives whenever possible.
+
 Download [desktop-theme-kit*.deb] (downloads) and install it by using the command: 
 
-`dpkg -i desktop-theme-kit*.deb` 
+`dpkg -i desktop-theme-kit*.deb`
 
 Afterwards please run our install script. This script changes the lines in various configuration files to point to our theme. Command (as root): 
 
@@ -67,9 +63,13 @@ Afterwards please run our install script. This script changes the lines in vario
 
 The script will show you a list of themes that are included in the desktop-theme-kit. Please choose one by typing its name. Afterwards log out and in (or reboot). 
 
+![install1](screenshots/update-desktop-theme-1a.png)
+
+
+
  
 
-## Using your own pictures
+### Using your own pictures
 
 desktop-theme-kit comes with six themes included. But you may easily create your own: Only three picture files are needed: 
 
@@ -92,7 +92,7 @@ As last step, please run again
 The name of your folder should now be on the list of themes. Type it and voilà.
 
 
-## Uninstall
+### Uninstall
 
 Please use the command: 
 
@@ -102,7 +102,15 @@ to reset the configuration files to the Debian default theme. Then uninstall the
 
 `dpkg -r desktop-theme-kit`
 
+![uninstall](screenshots/uninstall.png)
+
 Thanks for using the package.
+
+---
+
+## Future plans / Wishlist
+
+It should be possible to change the GUI elements separately, f.i. creating GUI packages. At the moment we have black, rounded, Gnome2-like GUI elements in kdm, slim, grub theme and plymouth. I plan to release add-on packages that just add other GUIs to desktop-theme-kit.
 
 
 ---
