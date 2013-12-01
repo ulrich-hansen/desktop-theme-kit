@@ -47,7 +47,7 @@ People on multiuser systems, who just want to change their wallpaper. Not everyb
 
 ## [Installation](id:Installation)
 
-At the moment, desktop-theme-kit installs in two steps:
+At the moment, desktop-theme-kit is supposed to be installed in two steps:
 
 1. The .deb-package makes the groundwork. It installs all the files needed, updates debian-alternatives, sets some symbolic links and configuration files.
 
