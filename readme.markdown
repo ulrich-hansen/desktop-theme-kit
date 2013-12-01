@@ -1,32 +1,34 @@
-![image](screenshots/headline.png) 
+![headline](screenshots/headline.png) 
 
 The package desktop-theme-kit allows admins to customize the look of Debian GNU/Linux. In the past, graphics like wallpapers, login screens, lock screens or boot menus could be changed at various places and sometimes it was still hard to get it to work. 
 
-Now the desktop-theme-kit can do this for you. 
+Now the desktop-theme-kit can do this for you.
 
-At the moment the following applications will use the theme set by the desktop-theme-kit:  
 
-* Gnome
+## The whole system with one look
 
-* GDM3
+| **Grub2** | **Grub2 Theme** | **Plymouth** |
+|:--------:|:--------:|:--------:|
+|[![roj-grubclassic](screenshots/roj-grubclassic-preview.png)](screenshots/roj-grubclassic.png)|[![roj-grubtheme](screenshots/roj-grubtheme-preview.png)](screenshots/roj-grubtheme.png)|[![roj-plymouth](screenshots/roj-plymouth-preview.png)](screenshots/roj-plymouth.png)|
+| **GDM3** | **Gnome** | **KDM** |
+|[![roj-gdm3](screenshots/roj-gdm3-preview.png)](screenshots/roj-gdm3.png)|[![roj-gnome](screenshots/roj-gnome-preview.png)](screenshots/roj-gnome.png)|[![roj-kdm](screenshots/roj-kdm-preview.png)](screenshots/roj-kdm.png)|
+| **KSplash** | **KDE** | **slim** |
+|[![roj-ksplash](screenshots/roj-ksplash-preview.png)](screenshots/roj-ksplash.png)|[![roj-kde](screenshots/roj-kde-preview.png)](screenshots/roj-kde.png)|[![roj-slim](screenshots/roj-slim-preview.png)](screenshots/roj-slim.png)|
+| **lightdm** | **LXDE** | |
+|[![roj-lightdm](screenshots/roj-lightdm-preview.png)](screenshots/roj-lightdm.png)|[![roj-lxde](screenshots/roj-lxde-preview.png)](screenshots/roj-lxde.png)||
 
-* XFCE
 
-* KDE
+## Six themes included - and easily add your own!
 
-* KSplash
+desktop-theme-kit comes with six themes:
 
-* KDM
+| **Roj** | **Growing** | **Elegance Blue** |
+|:--------:|:--------:|:--------:|
+|[![Roj](screenshots/roj-gnome-preview.png)](screenshots/roj-wallpaper.png) | [![Elegance Blue](screenshots/elegance-blue-gnome-preview.png)](screenshots/elegance-blue-wallpaper.png)|[![Growing](screenshots/growing-gnome-preview.png)](screenshots/growing-wallpaper.png)|
+| **Elegance Sepia** | **Jethro** | **Journey** |
+|[![Elegance Sepia](screenshots/elegance-sepia-gnome-preview.png)](screenshots/elegance-sepia-wallpaper.png) | [![Jethro](screenshots/jethro-gnome-preview.png)](screenshots/jethro-wallpaper.png)|[![Journey](screenshots/journey-gnome-preview.png)](screenshots/journey-wallpaper.png)|
 
-* Grub
-
-* Grub theme
-
-* plymouth
-
-* slim
-
-* lightdm 
+And you may VERY easily create your own themes! Just take a look into the chapter about [installation](#installation) a little bit further.
 
  
 ## How it works
@@ -37,7 +39,7 @@ It also uses its own GUI elements (at the moment for kdm, slim, grub theme and p
 
  
 
-## Who wants to use it
+## Our users
 
 desktop-theme-kit is supposed to unify the look of your desktop. It does that for **ALL** users of your system. 
 
@@ -53,7 +55,7 @@ People on multiuser systems, who just want to change their wallpaper. Not everyb
 
  
 
-## Installation
+## [Installation](id:Installation)
 
 Download [desktop-theme-kit*.deb] (downloads) and install it by using the command: 
 
