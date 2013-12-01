@@ -79,13 +79,13 @@ desktop-theme-kit comes with six themes included. But you may easily create your
 
 * And the classic Grub bootscreen picture. The size should be **640x480px**. The file should be named **grub.png** 
 
-At the moment only pictures in **PNG** format are allowed. Unfortunately not all programs accept SVG files. 
+At the moment only pictures in **PNG** format are allowed. 
 
-Now put these three pictures in a folder, give the folder a fitting name and copy the folder to: 
+Now put these three pictures in a folder and give the folder a fitting name. Then become root and copy the folder to: 
 
 `/usr/share/images/desktop-themes/* `
 
-As last step, please run again 
+As last step, please run as root:	 
 
 `update-desktop-theme -i`
 
