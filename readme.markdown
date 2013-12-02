@@ -80,7 +80,7 @@ You can easily add your own theme. Only three pictures are needed:
 
 * And the classic Grub bootscreen picture. The size should be **640x480px**. The file should be named **grub.png** 
 
-At the moment only pictures in **PNG** format are allowed. 
+At the moment only pictures in **PNG** format are recognized. 
 
 Now put these three pictures in a folder and give the folder an appropriate name. Then become root and copy the folder to: 
 
