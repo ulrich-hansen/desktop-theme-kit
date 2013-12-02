@@ -90,7 +90,7 @@ As last step, please run as root:
 
 `update-desktop-theme -i`
 
-Now the name of your folder should now be on the list of themes.
+Now the name of your folder should be on the list of themes.
 
 
 ### Uninstall
