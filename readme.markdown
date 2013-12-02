@@ -1,4 +1,4 @@
-![headline](screenshots/headline.png) 
+![headline](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/headline.png) 
 
 The package desktop-theme-kit allows admins to customize the look of Debian GNU/Linux. In the past, graphics like wallpapers, login screens, lock screens or boot menus could be changed at various places and sometimes it was still hard to get it to work. 
 
@@ -9,13 +9,13 @@ Now the desktop-theme-kit can do this for you.
 
 | **Grub2** | **Grub2 Theme** | **Plymouth** |
 |:--------:|:--------:|:--------:|
-|[![roj-grubclassic](screenshots/roj-grubclassic-preview.png)](screenshots/roj-grubclassic.png)|[![roj-grubtheme](screenshots/roj-grubtheme-preview.png)](screenshots/roj-grubtheme.png)|[![roj-plymouth](screenshots/roj-plymouth-preview.png)](screenshots/roj-plymouth.png)|
+|[![roj-grubclassic](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-grubclassic-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-grubclassic.png)|[![roj-grubtheme](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-grubtheme-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-grubtheme.png)|[![roj-plymouth](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-plymouth-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-plymouth.png)|
 | **GDM3** | **Gnome** | **KDM** |
-|[![roj-gdm3](screenshots/roj-gdm3-preview.png)](screenshots/roj-gdm3.png)|[![roj-gnome](screenshots/roj-gnome-preview.png)](screenshots/roj-gnome.png)|[![roj-kdm](screenshots/roj-kdm-preview.png)](screenshots/roj-kdm.png)|
+|[![roj-gdm3](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-gdm3-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-gdm3.png)|[![roj-gnome](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-gnome.png)|[![roj-kdm](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-kdm-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-kdm.png)|
 | **KSplash** | **KDE** | **slim** |
-|[![roj-ksplash](screenshots/roj-ksplash-preview.png)](screenshots/roj-ksplash.png)|[![roj-kde](screenshots/roj-kde-preview.png)](screenshots/roj-kde.png)|[![roj-slim](screenshots/roj-slim-preview.png)](screenshots/roj-slim.png)|
+|[![roj-ksplash](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-ksplash-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-ksplash.png)|[![roj-kde](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-kde-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-kde.png)|[![roj-slim](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-slim-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-slim.png)|
 | **lightdm** | **LXDE** | |
-|[![roj-lightdm](screenshots/roj-lightdm-preview.png)](screenshots/roj-lightdm.png)|[![roj-lxde](screenshots/roj-lxde-preview.png)](screenshots/roj-lxde.png)||
+|[![roj-lightdm](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-lightdm-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-lightdm.png)|[![roj-lxde](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-lxde-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-lxde.png)||
 
 
 ## Six themes included - and easily add your own!
@@ -24,9 +24,9 @@ desktop-theme-kit comes with six themes:
 
 | **Roj** | **Growing** | **Elegance Blue** |
 |:--------:|:--------:|:--------:|
-|[![Roj](screenshots/roj-gnome-preview.png)](screenshots/roj-wallpaper.png) | [![Elegance Blue](screenshots/elegance-blue-gnome-preview.png)](screenshots/elegance-blue-wallpaper.png)|[![Growing](screenshots/growing-gnome-preview.png)](screenshots/growing-wallpaper.png)|
+|[![Roj](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-wallpaper.png) | [![Elegance Blue](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-blue-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-blue-wallpaper.png)|[![Growing](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/growing-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/growing-wallpaper.png)|
 | **Elegance Sepia** | **Jethro** | **Journey** |
-|[![Elegance Sepia](screenshots/elegance-sepia-gnome-preview.png)](screenshots/elegance-sepia-wallpaper.png) | [![Jethro](screenshots/jethro-gnome-preview.png)](screenshots/jethro-wallpaper.png)|[![Journey](screenshots/journey-gnome-preview.png)](screenshots/journey-wallpaper.png)|
+|[![Elegance Sepia](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-wallpaper.png) | [![Jethro](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-wallpaper.png)|[![Journey](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-wallpaper.png)|
 
 And you may VERY easily create your own themes! Just take a look into the chapter about [installation](#installation) a little bit further.
 
@@ -57,21 +57,20 @@ Download [desktop-theme-kit*.deb] (downloads) and install it by using the comman
 
 `dpkg -i desktop-theme-kit*.deb`
 
-Afterwards please run our install script. This script changes the lines in various configuration files to point to our theme. Command (as root): 
+Afterwards please run the install script. Command (as root): 
 
 `update-desktop-theme -i`
 
-The script will show you a list of themes that are included in the desktop-theme-kit. Please choose one by typing its name. Afterwards log out and in (or reboot). 
+The script will show you a list of themes that are included in the desktop-theme-kit. Please choose one by typing its name. 
 
-![install1](screenshots/update-desktop-theme-1a.png)
+![install1](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/update-desktop-theme-1a.png)
+
+Afterwards log out and in (or reboot). 
 
 
+### Use your own pictures
 
- 
-
-### Using your own pictures
-
-desktop-theme-kit comes with six themes included. But you may easily create your own: Only three picture files are needed: 
+You may easily add your own themes. Only three pictures are needed: 
 
 * A login picture (used by GDM3, KDM, Ksplash, slim, lightdm, 	grub theme and plymouth). The picture should be **1920x1080px**. 	The file should be named **login.png**. 
 
@@ -89,7 +88,7 @@ As last step, please run as root:
 
 `update-desktop-theme -i`
 
-The name of your folder should now be on the list of themes. Type it and voilà.
+Now the name of your folder should now be on the list of themes.
 
 
 ### Uninstall
@@ -102,7 +101,7 @@ to reset the configuration files to the Debian default theme. Then uninstall the
 
 `dpkg -r desktop-theme-kit`
 
-![uninstall](screenshots/uninstall.png)
+![uninstall](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/uninstall.png)
 
 Thanks for using the package.
 
@@ -110,14 +109,16 @@ Thanks for using the package.
 
 ## Future plans / Wishlist
 
-It should be possible to change the GUI elements separately, f.i. creating GUI packages. At the moment we have black, rounded, Gnome2-like GUI elements in kdm, slim, grub theme and plymouth. I plan to release add-on packages that just add other GUIs to desktop-theme-kit.
+For login-boxes or other messages, desktop-theme-kit comes with black, rounded elements. They are used by kdm, slim, grub theme and plymouth. 
+
+![GUI-element](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/GUI-element.png)
+
+I plan to do "add-on packages" that adds those elements in a different style.
 
 
 ---
  
 # License
-
-desktop-theme-kit 
 
 Copyright by Ulrich Hansen <uhansen@mainz-online.de> and Ronoaldo JLP <ronoaldo@gmail.com>, 2012, 2013. 
 
