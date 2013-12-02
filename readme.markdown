@@ -30,7 +30,7 @@ desktop-theme-kit comes with six themes:
 | **Elegance Sepia** | **Jethro** | **Journey** |
 |[![Elegance Sepia](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-wallpaper.png) | [![Jethro](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-wallpaper.png)|[![Journey](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-wallpaper.png)|
 
-And you may VERY easily create your own themes! Just take a look into the chapter about [installation](#installation) a little bit further.
+And you can easily create your own themes! Just look up [installation](#installation) a bit further.
 
  
 ## Our users
