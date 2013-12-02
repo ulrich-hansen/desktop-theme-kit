@@ -51,7 +51,7 @@ People on multiuser systems, who just want to change their wallpaper. Not everyb
 
 At the moment, desktop-theme-kit is supposed to be installed in two steps:
 
-1. The .deb-package lays the groundwork. It installs all the files needed, updates debian-alternatives, sets symbolic links and puts configuration files in place.
+1. The .deb-package lays the groundwork. It installs all the files needed, updates Debian alternatives, sets symbolic links and puts configuration files in place.
 
 2. The install script "update-desktop-theme" lets you select a theme. It points all necessary configuration files to the pictures you want to use, using Debian alternatives whenever possible.
 
