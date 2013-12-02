@@ -43,7 +43,7 @@ desktop-theme-kit is supposed to unify the look of your desktop. It does that fo
 
 ## Who shouldn't use it 
 
-People on multiuser systems, who just want to change their wallpaper. Not everybody wants to see your star wars pictures when they log in their system. :-) 
+People on multiuser systems, who just want to change their wallpaper. The theme set by desktop-theme-kit would affect the other users as well. Please use the settings of your desktop environment instead.
 
  
 
