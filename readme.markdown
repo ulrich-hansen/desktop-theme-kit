@@ -41,7 +41,7 @@ This is also a great tool for people who use Debian GNU/Linux as their desktop O
 
 ## Who shouldn't use it 
 
-People on multiuser systems, who just want to change their wallpaper. Not everybody wants to see your cat picture when they log in their system. :-) 
+People on multiuser systems, who just want to change their wallpaper. Not everybody wants to see your star wars pictures when they log in their system. :-) 
 
  
 
