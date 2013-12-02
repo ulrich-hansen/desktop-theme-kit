@@ -82,7 +82,7 @@ You may easily add your own themes. Only three pictures are needed:
 
 At the moment only pictures in **PNG** format are allowed. 
 
-Now put these three pictures in a folder and give the folder a fitting name. Then become root and copy the folder to: 
+Now put these three pictures in a folder and give the folder an appropriate name. Then become root and copy the folder to: 
 
 `/usr/share/images/desktop-themes/* `
 
