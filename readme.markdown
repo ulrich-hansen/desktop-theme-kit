@@ -1,11 +1,13 @@
 ![headline](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/headline.png) 
 
-The package desktop-theme-kit allows admins to customize the look of Debian GNU/Linux. In the past, graphics like wallpapers, login screens, lock screens or boot menus could be changed at various places and sometimes it was still hard to get it to work. 
+In the past, graphics like wallpapers, login screens, lock screens or boot menus had to be changed at various places. And sometimes it was still hard to get it to work. 
 
 Now the desktop-theme-kit can do this for you.
 
 
-## The whole system with one look
+## One look
+
+Once installed, the whole system will share the same look. The grub menu, the bootscreen, the desktop and more. At the moment, desktop-theme-kit provides artwork for the following applications: 
 
 | **Grub2** | **Grub2 Theme** | **Plymouth** |
 |:--------:|:--------:|:--------:|
@@ -22,7 +24,7 @@ Now the desktop-theme-kit can do this for you.
 
 desktop-theme-kit comes with six themes:
 
-| **Roj** | **Growing** | **Elegance Blue** |
+| **Roj** | **Elegance Blue** | **Growing** |
 |:--------:|:--------:|:--------:|
 |[![Roj](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-wallpaper.png) | [![Elegance Blue](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-blue-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-blue-wallpaper.png)|[![Growing](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/growing-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/growing-wallpaper.png)|
 | **Elegance Sepia** | **Jethro** | **Journey** |
