@@ -37,9 +37,9 @@ And you can easily create your own themes! Just look up [installation](#installa
 
 desktop-theme-kit is supposed to unify the look of your desktop. It does that for **ALL** users of your system. 
 
-So this is an instrument for admins, who want to have the same look and feel on all their Debian GNU/Linux systems for all users (for instance in a company or a lab).  
+* So this is an instrument for admins, who want to have the same look and feel on all their Debian GNU/Linux systems for all users (for instance in a company or a lab).  
 
-This is also a great tool for people who use Debian GNU/Linux as their desktop OS and want to see their favorite pictures on more than just the desktop wallpaper. 
+* This is also a great tool for people who use Debian GNU/Linux as their desktop OS and want to see their favorite pictures on more than just the desktop wallpaper. 
 
 ## Who shouldn't use it 
 
