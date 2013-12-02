@@ -72,7 +72,7 @@ The script will now activate the chosen theme. When it is done, please log out a
 
 ### Use your own pictures
 
-You may easily add your own themes. Only three pictures are needed: 
+You can easily add your own theme. Only three pictures are needed: 
 
 * A login picture (used by GDM3, KDM, Ksplash, slim, lightdm, 	grub theme and plymouth). The picture should be **1920x1080px**. 	The file should be named **login.png**. 
 
