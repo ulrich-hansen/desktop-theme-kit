@@ -1,6 +1,6 @@
 ![headline](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/headline.png) 
 
-In the past, graphics like wallpapers, login screens, lock screens or boot menus had to be changed at various places. And sometimes it was still hard to get it to work. 
+In the past, graphics like wallpapers, login screens, lock screens or boot menus had to be configured in various places. And sometimes it was still hard to get it to work. 
 
 Now the desktop-theme-kit can do this for you.
 
@@ -67,7 +67,7 @@ The script will show you a list of themes that are included in the desktop-theme
 
 ![install1](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/update-desktop-theme-1a.png)
 
-Afterwards log out and in (or reboot). 
+The script will now activate the chosen theme. When it is done, please log out and in (or reboot). 
 
 
 ### Use your own pictures
