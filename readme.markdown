@@ -22,7 +22,7 @@ Once installed, the whole system will share the same look. The grub menu, the bo
 
 ## Six themes included - and easily add your own!
 
-desktop-theme-kit comes with six themes:
+These themes are part of the package:
 
 | **Roj** | **Growing** | **Elegance Blue** |
 |:--------:|:--------:|:--------:|
@@ -30,10 +30,10 @@ desktop-theme-kit comes with six themes:
 | **Elegance Sepia** | **Jethro** | **Journey** |
 |[![Elegance Sepia](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-wallpaper.png) | [![Jethro](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-wallpaper.png)|[![Journey](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-wallpaper.png)|
 
-And you can easily create your own themes! Just look up [installation](#installation) a bit further.
+It is very easy to add own themes. See chapter [installation](#installation).
 
  
-## Our users
+## What's the use?
 
 desktop-theme-kit is supposed to unify the look of your desktop. It does that for **ALL** users of your system. 
 
@@ -72,19 +72,17 @@ The script will now activate the chosen theme. When it is done, please log out a
 
 ### Use your own pictures
 
-You can easily add your own theme. Only three pictures are needed: 
+To add your own theme, create three pictures: 
 
-* A login picture (used by GDM3, KDM, Ksplash, slim, lightdm, 	grub theme and plymouth). The picture should be **1920x1080px**. 	The file should be named **login.png**. 
+* **login.png**, 1920x1080px, for GDM3, KDM, Ksplash, slim, lightdm, 	grub theme and plymouth. 
 
-* A wallpaper (used by Gnome, KDE, XFCE). The preferred size is also **1920x1080px**. Please name the file **wallpaper.png**.  
+* **wallpaper.png**, 1920x1080px, for Gnome, KDE, XFCE.  
 
-* And the classic Grub bootscreen picture. The size should be **640x480px**. The file should be named **grub.png** 
+* **grub.png**, 640x480px, for the classic Grub bootmenu. 
 
-At the moment only pictures in **PNG** format are recognized. 
+Please put these three pictures in a folder and give the folder an appropriate name. Then become root to copy it to its proper location. 
 
-Now put these three pictures in a folder and give the folder an appropriate name. Then become root and copy the folder to: 
-
-`/usr/share/images/desktop-themes/* `
+`cp -R folder /usr/share/images/desktop-themes`
 
 As last step, please run as root:	 
 
@@ -111,11 +109,11 @@ Thanks for using the package.
 
 ## Future plans / Wishlist
 
-For login-boxes or other messages, desktop-theme-kit comes with black, rounded elements. They are used by kdm, slim, grub theme and plymouth. 
-
+1. As boxes for login or for messages, desktop-theme-kit uses black, rounded elements (currently for kdm, slim, grub theme and plymouth). It should be possible to update these graphics without changing the installed themes.
 ![GUI-element](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/GUI-element.png)
 
-I plan to do "add-on packages" that adds those elements in a different style.
+2. A few applications support svg pictures. So maybe it would be a good idea to accept svg pictures. They could be converted to png for all the other programs.
+
 
 
 ---
