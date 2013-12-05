@@ -2,11 +2,11 @@ Source: desktop-theme-kit
 Section: x11
 Priority: optional
 Maintainer: Ronoaldo JLP <ronoaldo@gmail.com>
-Uploaders: Ulrich Hansen <uhansen@debianart.org>
+Uploaders: Ulrich Hansen <uhansen@mainz-online.de>
 Build-Depends: debhelper (>= 9), cdbs
 Standards-Version: 3.9.3
 Homepage: http://wiki.debian.org/DebianArt/Themes/
-Vcs-Hg: https://bitbucket.org/ronoaldo/desktop-theme-growing
+Git-Repository: https://github.com/ulrich-hansen/desktop-theme-kit
 
 Package: desktop-theme-kit
 Pre-Depends: dpkg (>= 1.15.7.2~), desktop-base

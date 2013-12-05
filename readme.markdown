@@ -1,6 +1,6 @@
 ![headline](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/headline.png) 
 
-In the past, graphics like wallpapers, login screens, lock screens or boot menus had to be configured in various places. And sometimes it was still hard to get it to work. 
+In the past, graphics like wallpapers, login screens, lock screens or boot menus in Debian GNU/Linux had to be configured in various places. And sometimes it was still hard to get it to work. 
 
 Now the desktop-theme-kit can do this for you.
 
@@ -82,7 +82,7 @@ To add your own theme, create three pictures:
 
 Please put these three pictures into a folder and give the folder an appropriate name. Then become root to copy it to its location. 
 
-`cp -R folder /usr/share/images/desktop-themes`
+`cp -R yourfolder /usr/share/images/desktop-themes`
 
 As last step, please run as root:	 
 
@@ -122,7 +122,10 @@ Thanks for using the package.
  
 # License
 
-Copyright by Ulrich Hansen <uhansen@mainz-online.de> and Ronoaldo JLP <ronoaldo@gmail.com>, 2012, 2013. 
+Copyright by
+
+* Ulrich Hansen <uhansen@mainz-online.de>, 2012, 2013 
+* Ronoaldo JLP <ronoaldo@gmail.com>, 2012.
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
