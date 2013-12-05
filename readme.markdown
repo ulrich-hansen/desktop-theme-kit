@@ -80,7 +80,7 @@ To add your own theme, create three pictures:
 
 * **grub.png**, 640x480px, for the classic Grub bootmenu. 
 
-Please put these three pictures in a folder and give the folder an appropriate name. Then become root to copy it to its proper location. 
+Please put these three pictures into a folder and give the folder an appropriate name. Then become root to copy it to its location. 
 
 `cp -R folder /usr/share/images/desktop-themes`
 
@@ -109,10 +109,12 @@ Thanks for using the package.
 
 ## Future plans / Wishlist
 
-1. As boxes for login or for messages, desktop-theme-kit uses black, rounded elements (currently for kdm, slim, grub theme and plymouth). It should be possible to update these graphics without changing the installed themes.
+* As boxes for login or for messages, desktop-theme-kit uses black, rounded elements (currently for kdm, slim, grub theme and plymouth). It should be possible to update these graphics without changing the installed themes.
+
+
 ![GUI-element](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/GUI-element.png)
 
-2. A few applications support svg pictures. So maybe it would be a good idea to accept svg pictures. They could be converted to png for all the other programs.
+* A few applications support SVG pictures. So maybe it would be a good idea if desktop-theme-kit would use SVG pictures too. They could be converted to png for all the other programs.
 
 
 
