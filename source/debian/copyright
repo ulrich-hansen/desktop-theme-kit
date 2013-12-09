@@ -3,7 +3,7 @@ Upstream-Name: desktop-theme-kit
 Source: http://wiki.debian.org/DebianArt/Themes/
 
 Files: *
-Copyright:    2012 Ulrich Hansen <uhansen@debianart.org>
+Copyright:    2012 Ulrich Hansen <uhansen@mainz-online.de>
 License: GPL-2.0+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@ License: GPL-2.0+
 
 Files: debian/*
 Copyright: 2012 Ronoaldo JLP <ronoaldo@gmail.com>,
-           2012 Ulrich Hansen <uhansen@debianart.org>
+           2012 Ulrich Hansen <uhansen@mainz-online.de>
 License: GPL-2.0+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
