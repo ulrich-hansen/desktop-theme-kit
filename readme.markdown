@@ -30,7 +30,7 @@ These themes are part of the package:
 | **Elegance Sepia** | **Jethro** | **Journey** |
 |[![Elegance Sepia](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-wallpaper.png) | [![Jethro](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-wallpaper.png)|[![Journey](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-wallpaper.png)|
 
-It is very easy to add own themes. See chapter [installation](#installation).
+It is very easy to add own themes. See chapter "Installation".
 
  
 ## What's the use?
@@ -55,7 +55,7 @@ At the moment, desktop-theme-kit is supposed to be installed in two steps:
 
 2. The install script "update-desktop-theme" lets you select a theme. It points all necessary configuration files to the pictures you want to use, using Debian alternatives whenever possible.
 
-Download [desktop-theme-kit*.deb] (downloads) and install it by using the command: 
+Download the [package](http://lazybrowndog.net/debian/desktop-theme-kit/downloads) and install it by using the command: 
 
 `dpkg -i desktop-theme-kit*.deb`
 
