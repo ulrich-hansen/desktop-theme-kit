@@ -26,7 +26,7 @@
 # for more information about this package and how to use your own 
 # artwork.
 #
-# Copyright (C) 2012, 2013 Ulrich Hansen <uhansen@mainz-online.de>
+# Copyright (C) 2012, 2013 Ulrich Hansen <uhansen@debianart.org>
 #               2012 Ronoaldo JLP <ronoaldo@gmail.com>
 
 
@@ -98,8 +98,8 @@ read ANSWER
 
 
 clear_wallpaper_cache() {
-    rm -f /home/*/.cache/wallpaper/*  2>/dev/null;
-    rm -f -r /home/*/.kde/cache-debian/*
+    rm -f /home/*/.cache/wallpaper/*;
+    rm -f -r /home/*/.kde/cache-debian/*;
 }
 
 # 1.2 Initialize the wallpaper
@@ -139,7 +139,9 @@ EOF
 # Until then we must change a KDE config file to point to our theme.
 
 set_kde_wallpaper() {
+    if [ -f /home/*/.kde/share/config/plasma-desktop-appletsrc ]; then
     sed -i "s/wallpaper=.*/wallpaper=$PACKAGE/" /home/*/.kde/share/config/plasma-desktop-appletsrc
+    fi
 }
 
 
@@ -154,10 +156,14 @@ set_kde_wallpaper() {
 # We have to update these settings in order to point to our theme.
 
 set_ksplash_theme() {
+    if [ -f /home/*/.kde/share/config/startupconfig ]; then
     sed -i "s/ksplashrc_ksplash_theme=.*/ksplashrc_ksplash_theme=$PACKAGE/" /home/*/.kde/share/config/startupconfig;
     sed -i "s/ksplashrc_ksplash_engine=.*/ksplashrc_ksplash_engine=KSplashX/" /home/*/.kde/share/config/startupconfig;
+    fi
+    if [ -f /home/*/.kde/share/config/ksplashrc ]; then
     sed -i "s/Theme=.*/Theme=$PACKAGE/" /home/*/.kde/share/config/ksplashrc;
     sed -i "s/Engine=.*/Engine=KSplashX/" /home/*/.kde/share/config/ksplashrc;
+    fi
 	
 # The Makefile of desktop-theme-kit already put a symlink to the 
 # login-picture into Ksplashs "/../1920x1080" directory. Nevertheless 
@@ -333,7 +339,9 @@ reset_gnome_wallpaper() {
 # Note: This won't be necessary for Jessy.
 
 reset_kde_wallpaper() {
-    sed -i "s/wallpaper=.*/wallpaper=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/plasma-desktop-appletsrc 2>/dev/null
+    if [ -f /home/*/.kde/share/config/plasma-desktop-appletsrc ]; then
+    sed -i "s/wallpaper=.*/wallpaper=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/plasma-desktop-appletsrc;
+    fi
 }
 
 # 2.2 KSplash
@@ -342,18 +350,22 @@ reset_kde_wallpaper() {
 # engine. So we do not touch the engine configuration.
 
 reset_ksplash_theme() {
-    sed -i "s/ksplashrc_ksplash_theme=$PACKAGE/ksplashrc_ksplash_theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/startupconfig 2>/dev/null;
-    sed -i "s/Theme=$PACKAGE/Theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/ksplashrc 2>/dev/null;
+    if [ -f /home/*/.kde/share/config/startupconfig ]; then
+    sed -i "s/ksplashrc_ksplash_theme=$PACKAGE/ksplashrc_ksplash_theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/startupconfig;
+    fi
+    if [ -f /home/*/.kde/share/config/ksplashrc ]; then
+    sed -i "s/Theme=$PACKAGE/Theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/ksplashrc;
+    fi
 
 # We remove all the images in different resolutions, that we had 
 # imagemagick create when we installed the theme for KSplash.
-rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1024x768/background.png;
-rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x1024/background.png;
-rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x800/background.png;
-rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1366x768/background.png;
-rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1600x1200/background.png;
-rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
-rm /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1200/background.png;
+rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1024x768/background.png;
+rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x1024/background.png;
+rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x800/background.png;
+rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1366x768/background.png;
+rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1600x1200/background.png;
+rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
+rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1200/background.png;
 }
 
 

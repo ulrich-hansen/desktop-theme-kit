@@ -13,5 +13,5 @@ Pre-Depends: dpkg (>= 1.15.7.2~), desktop-base
 Architecture: all
 Suggests: gnome | kde-standard | xfce4 | wmaker, plymouth-themes-script
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: kit desktop theme
+Description: desktop-theme-kit
  This package allows root to install custom desktop themes for Debian.
