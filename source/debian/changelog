@@ -1,4 +1,14 @@
-desktop-theme-kit (0.9.0~exp1) experimental; urgency=low
+desktop-theme-kit (1.9.0~exp1) UNRELEASED; urgency=low
+
+  * Multiple themes included
+  * Possibility to add own themes
+  * The various image resolutions for KSplash are created automatically
+  * The grub-theme picture is automatically resized
+  * The install script is located in /usr/bin /update-desktop-theme
+
+ -- Ulrich Hansen <uhansen@mainz-online.de>  Sun, 15 Dec 2013 15:36:28 +0100
+
+desktop-theme-growing (1.0.0~exp1) experimental; urgency=low
 
   [Ronoaldo JLP]
   * Initial release of the prototype (desktop-theme-growing)
