@@ -139,9 +139,10 @@ EOF
 # Until then we must change a KDE config file to point to our theme.
 
 set_kde_wallpaper() {
-    if [ -f /home/*/.kde/share/config/plasma-desktop-appletsrc ]; then
-    sed -i "s/wallpaper=.*/wallpaper=$PACKAGE/" /home/*/.kde/share/config/plasma-desktop-appletsrc
-    fi
+	if [[ -n $(find /home -maxdepth 5 -name "plasma-desktop-appletsrc") ]]
+	then
+		sed -i "s/wallpaper=.*/wallpaper=$PACKAGE/" /home/*/.kde/share/config/plasma-desktop-appletsrc
+	fi
 }
 
 
@@ -156,13 +157,15 @@ set_kde_wallpaper() {
 # We have to update these settings in order to point to our theme.
 
 set_ksplash_theme() {
-    if [ -f /home/*/.kde/share/config/startupconfig ]; then
-    sed -i "s/ksplashrc_ksplash_theme=.*/ksplashrc_ksplash_theme=$PACKAGE/" /home/*/.kde/share/config/startupconfig;
-    sed -i "s/ksplashrc_ksplash_engine=.*/ksplashrc_ksplash_engine=KSplashX/" /home/*/.kde/share/config/startupconfig;
+	if [[ -n $(find /home -maxdepth 5 -name "startupconfig") ]]
+	then	
+    	sed -i "s/ksplashrc_ksplash_theme=.*/ksplashrc_ksplash_theme=$PACKAGE/" /home/*/.kde/share/config/startupconfig;
+    	sed -i "s/ksplashrc_ksplash_engine=.*/ksplashrc_ksplash_engine=KSplashX/" /home/*/.kde/share/config/startupconfig;
     fi
-    if [ -f /home/*/.kde/share/config/ksplashrc ]; then
-    sed -i "s/Theme=.*/Theme=$PACKAGE/" /home/*/.kde/share/config/ksplashrc;
-    sed -i "s/Engine=.*/Engine=KSplashX/" /home/*/.kde/share/config/ksplashrc;
+    if [[ -n $(find /home -maxdepth 5 -name "ksplashrc") ]] 
+	then
+    	sed -i "s/Theme=.*/Theme=$PACKAGE/" /home/*/.kde/share/config/ksplashrc;
+    	sed -i "s/Engine=.*/Engine=KSplashX/" /home/*/.kde/share/config/ksplashrc;
     fi
 	
 # The Makefile of desktop-theme-kit already put a symlink to the 
@@ -339,8 +342,9 @@ reset_gnome_wallpaper() {
 # Note: This won't be necessary for Jessy.
 
 reset_kde_wallpaper() {
-    if [ -f /home/*/.kde/share/config/plasma-desktop-appletsrc ]; then
-    sed -i "s/wallpaper=.*/wallpaper=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/plasma-desktop-appletsrc;
+    if [[ -n $(find /home -maxdepth 5 -name "plasma-desktop-appletsrc") ]]
+	then
+    	sed -i "s/wallpaper=.*/wallpaper=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/plasma-desktop-appletsrc;
     fi
 }
 
@@ -350,11 +354,13 @@ reset_kde_wallpaper() {
 # engine. So we do not touch the engine configuration.
 
 reset_ksplash_theme() {
-    if [ -f /home/*/.kde/share/config/startupconfig ]; then
-    sed -i "s/ksplashrc_ksplash_theme=$PACKAGE/ksplashrc_ksplash_theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/startupconfig;
+    if [[ -n $(find /home -maxdepth 5 -name "startupconfig") ]] 
+	then
+    	sed -i "s/ksplashrc_ksplash_theme=$PACKAGE/ksplashrc_ksplash_theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/startupconfig;
     fi
-    if [ -f /home/*/.kde/share/config/ksplashrc ]; then
-    sed -i "s/Theme=$PACKAGE/Theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/ksplashrc;
+    if [[ -n $(find /home -maxdepth 5 -name "ksplashrc") ]]     
+	then
+    	sed -i "s/Theme=$PACKAGE/Theme=$DEBIAN_DEFAULT/" /home/*/.kde/share/config/ksplashrc;
     fi
 
 # We remove all the images in different resolutions, that we had 
