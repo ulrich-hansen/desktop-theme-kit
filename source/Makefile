@@ -51,6 +51,7 @@ mkdirs:
 	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/roj
 	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/journey
 	mkdir -p $(DESTDIR)/usr/share/slim/themes/$(PACKAGE)/
+	mkdir -p $(DESTDIR)/usr/share/man/man8
 	
 
 install-backgrounds: mkdirs
@@ -101,6 +102,8 @@ install-readme: mkdirs
 install-script: mkdirs
 	$(INSTALL) script/update-desktop-theme $(DESTDIR)/usr/bin/update-desktop-theme
 
+install-manpage: mkdirs
+	$(INSTALL) script/update-desktop-theme.8.gz $(DESTDIR)/usr/share/man/man8/update-desktop-theme.8.gz
 
 install-themes: mkdirs
 	$(INSTALL) $(wildcard themes/growing/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/growing/
@@ -111,6 +114,5 @@ install-themes: mkdirs
 	$(INSTALL) $(wildcard themes/journey/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/journey/
 
 
-
-install: install-backgrounds install-plymouth install-grub install-gdm3 install-ksplash install-kdm install-kde install-readme install-slim install-script install-themes
+install: install-backgrounds install-plymouth install-grub install-gdm3 install-ksplash install-kdm install-kde install-readme install-slim install-script install-themes install-manpage
 	
