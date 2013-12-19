@@ -20,17 +20,15 @@ Once installed, the whole system will share the same look. The grub menu, the bo
 |[![roj-lightdm](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-lightdm-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-lightdm.png)|[![roj-lxde](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-lxde-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-lxde.png)||
 
 
-## Six themes included - and easily add your own!
+## Three themes included - and easily add your own!
 
-These themes are part of the package:
 
-| **Roj** | **Growing** | **Elegance Blue** |
+
+| **Roj** | **Growing** | **Journey** |
 |:--------:|:--------:|:--------:|
-|[![Roj](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-wallpaper.png) | [![Growing](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/growing-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/growing-wallpaper.png)|[![Elegance Blue](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-blue-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-blue-wallpaper.png)|
-| **Elegance Sepia** | **Jethro** | **Journey** |
-|[![Elegance Sepia](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/elegance-sepia-wallpaper.png) | [![Jethro](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/jethro-wallpaper.png)|[![Journey](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-wallpaper.png)|
+|[![Roj](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/roj-wallpaper.png) | [![Growing](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/growing-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/growing-wallpaper.png)|[![Journey](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-gnome-preview.png)](http://lazybrowndog.net/debian/desktop-theme-kit/screenshots/journey-wallpaper.png)|
 
-It is very easy to add own themes. See chapter "Installation".
+desktop-theme-kit comes with three themes preinstalled, but it is very easy to add own themes. See chapter "Installation".
 
  
 ## What's the use?

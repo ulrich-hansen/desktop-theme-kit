@@ -1,3 +1,0 @@
-Artwork: Jethro
-Author: Mario Gervais <mgervais@mailoo.org>
-License: GNU GPL v2 or (at your option) any later version.  

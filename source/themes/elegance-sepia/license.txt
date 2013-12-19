@@ -1,3 +1,0 @@
-Artwork: Elegance Sepia
-Author: Ulrich Hansen <uhansen@mainz-online.de>
-License: GNU GPL v2 or (at your option) any later version.  
