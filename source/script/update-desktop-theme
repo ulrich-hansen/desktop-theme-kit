@@ -157,6 +157,7 @@ set_kde_wallpaper() {
 # We have to update these settings in order to point to our theme.
 
 set_ksplash_theme() {
+if [ -f /usr/bin/ksplashx ]; then	
 	if [[ -n $(find /home -maxdepth 5 -name "startupconfig") ]]
 	then	
     	sed -i "s/ksplashrc_ksplash_theme=.*/ksplashrc_ksplash_theme=$PACKAGE/" /home/*/.kde/share/config/startupconfig;
@@ -174,31 +175,32 @@ set_ksplash_theme() {
 # login-picture to a variety of different resolutions, maintaining 
 # the aspect-ratio. Otherwise KSplash may distort the picture.
 	
-if [ -x /usr/bin/convert ]; then
-echo "Please wait just a minute, I am calculating the resolutions for KSplash...";
+	if [ -x /usr/bin/convert ]; then
+	echo "Please wait just a minute, I am calculating the resolutions for KSplash...";
 		
-convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1024x768^ -gravity center -extent 1024x768 /usr/share/kde4/apps/ksplash/Themes/$THEME/1024x768/background.png;
-echo "Imagemagick resized 1 of 7 KSplash background pictures.";
-convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1280x1024^ -gravity center -extent 1280x1024 /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x1024/background.png;
-echo "Imagemagick resized 2 of 7 KSplash background pictures.";
-convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1280x800^ -gravity center -extent 1280x800 /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x800/background.png;
-echo "Imagemagick resized 3 of 7 KSplash background pictures.";
-convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1366x768^ -gravity center -extent 1366x768 /usr/share/kde4/apps/ksplash/Themes/$THEME/1366x768/background.png;
-echo "Imagemagick resized 4 of 7 KSplash background pictures.";
-convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1600x1200^ -gravity center -extent 1600x1200 /usr/share/kde4/apps/ksplash/Themes/$THEME/1600x1200/background.png;
-echo "Imagemagick resized 5 of 7 KSplash background pictures.";
+	convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1024x768^ -gravity center -extent 1024x768 /usr/share/kde4/apps/ksplash/Themes/$THEME/1024x768/background.png;
+	echo "Imagemagick resized 1 of 7 KSplash background pictures.";
+	convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1280x1024^ -gravity center -extent 1280x1024 /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x1024/background.png;
+	echo "Imagemagick resized 2 of 7 KSplash background pictures.";
+	convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1280x800^ -gravity center -extent 1280x800 /usr/share/kde4/apps/ksplash/Themes/$THEME/1280x800/background.png;
+	echo "Imagemagick resized 3 of 7 KSplash background pictures.";
+	convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1366x768^ -gravity center -extent 1366x768 /usr/share/kde4/apps/ksplash/Themes/$THEME/1366x768/background.png;
+	echo "Imagemagick resized 4 of 7 KSplash background pictures.";
+	convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1600x1200^ -gravity center -extent 1600x1200 /usr/share/kde4/apps/ksplash/Themes/$THEME/1600x1200/background.png;
+	echo "Imagemagick resized 5 of 7 KSplash background pictures.";
 
 # We delete the symlink "/../1920x1080/@background.png" and resize the
 # login-picture to 1920x1080px. It should already be 1920x1080, but it
 # won't harm to make sure.
 		
-rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
+	rm -f /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
 
-convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1920x1080^ -gravity center -extent 1920x1080 /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
-echo "Imagemagick resized 6 of 7 KSplash background pictures.";
-convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1920x1200^ -gravity center -extent 1920x1200 /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1200/background.png;
-echo -e "Imagemagick resized 7 of 7 KSplash background pictures. \nThanks for your patience!";
+	convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1920x1080^ -gravity center -extent 1920x1080 /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1080/background.png;
+	echo "Imagemagick resized 6 of 7 KSplash background pictures.";
+	convert /usr/share/desktop-theme-$THEME/backgrounds/$THEME-login.png -resize 1920x1200^ -gravity center -extent 1920x1200 /usr/share/kde4/apps/ksplash/Themes/$THEME/1920x1200/background.png;
+	echo -e "Imagemagick resized 7 of 7 KSplash background pictures. \nThanks for your patience!";
 
+	fi
 fi
 }
 
