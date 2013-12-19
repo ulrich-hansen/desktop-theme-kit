@@ -45,9 +45,6 @@ mkdirs:
 	mkdir -p $(DESTDIR)/etc/xdg/autostart/
 	mkdir -p $(DESTDIR)/usr/bin/
 	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/growing
-	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/elegance-blue
-	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/elegance-sepia
-	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/jethro
 	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/roj
 	mkdir -p $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/journey
 	mkdir -p $(DESTDIR)/usr/share/slim/themes/$(PACKAGE)/
