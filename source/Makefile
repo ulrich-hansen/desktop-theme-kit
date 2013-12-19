@@ -107,10 +107,7 @@ install-manpage: mkdirs
 
 install-themes: mkdirs
 	$(INSTALL) $(wildcard themes/growing/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/growing/
-	$(INSTALL) $(wildcard themes/elegance-blue/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/elegance-blue/
-	$(INSTALL) $(wildcard themes/elegance-sepia/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/elegance-sepia/
 	$(INSTALL) $(wildcard themes/roj/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/roj/
-	$(INSTALL) $(wildcard themes/jethro/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/jethro/
 	$(INSTALL) $(wildcard themes/journey/*.* ) $(DESTDIR)/usr/share/images/$(ARTWORK_FOLDER)/journey/
 
 
