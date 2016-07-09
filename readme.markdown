@@ -4,6 +4,8 @@ In the past, graphics like wallpapers, login screens, lock screens or boot menus
 
 Now the desktop-theme-kit can do this for you.
 
+This package has been tested to work with Debian GNU/Linux 7.
+
 
 ## One look
 
